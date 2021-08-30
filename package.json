@@ -1,0 +1,16 @@
+{
+  "name": "productoapi",
+  "version": "1.0.0",
+  "description": "api productos",
+  "main": "main.js",
+  "scripts": {
+    "test": "",
+    "start": "nodemon main.js"
+  },
+  "author": "fede",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
