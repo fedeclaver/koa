@@ -1,76 +1,62 @@
 [
   {
-    "title": "Escuadra",
-    "price": 123.45,
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-    "id": 1
+    "id": 1,
+    "nombre": "Montañas",
+    "timestamp": 1632927760139,
+    "descripcion": "Montañas",
+    "codigo": "123",
+    "foto": "https://i.picsum.photos/id/79/200/200.jpg?hmac=jnCRb6UX5VWA4Kxl91zIBXPa2iJJsmVwzbxrzt6TahQ",
+    "precio": "50",
+    "stock": "12"
   },
   {
-    "title": "Calculadora",
-    "price": 234.56,
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
-    "id": 2
+    "id": 3,
+    "timestamp": "1632626867846",
+    "nombre": "Perro2",
+    "descripcion": "Acantilado",
+    "codigo": "125",
+    "foto": "https://i.picsum.photos/id/483/200/200.jpg?hmac=tIKQEdwuW7trzVGWGE-cAgtpmRJla51INgO9dvJG3hA",
+    "precio": "150",
+    "stock": "20"
   },
   {
-    "title": "Globo Terráqueo",
-    "price": 345.67,
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
-    "id": 3
+    "id": 4,
+    "timestamp": 1632878233884,
+    "nombre": "Puente",
+    "descripcion": "Puente Pepe",
+    "codigo": "555",
+    "foto": "https://i.picsum.photos/id/965/200/200.jpg?hmac=OalaXaaPbpRZbMwF3uJMUdZIpUmyqse0anUnQcbStrM",
+    "precio": 1000,
+    "stock": 55
   },
   {
-    "title": "Coca Cola5",
-    "thumbnail": "sadasd5",
-    "category": "Bebidas5",
-    "price": 21321,
-    "id": 4
+    "id": 5,
+    "timestamp": 1632878233884,
+    "nombre": "Globo",
+    "descripcion": "Globo Aerostatico",
+    "codigo": "555",
+    "foto": "https://i.picsum.photos/id/174/200/200.jpg?hmac=drl_DcYoPvaGCAF7hzG6zjvSnt77TUxwZFQz_-FDLuI",
+    "precio": 1000,
+    "stock": 55
   },
   {
-    "title": "Coca Cola6",
-    "thumbnail": "sadasd6",
-    "category": "Bebidas6",
-    "price": 21321,
-    "id": 5
+    "id": 6,
+    "timestamp": 1633005067620,
+    "nombre": "Capucha",
+    "descripcion": "Capucha Gris",
+    "codigo": "1111",
+    "foto": "https://i.picsum.photos/id/338/200/200.jpg?hmac=5S5SeR5xW8mbN3Ml7wTTJPePX392JafhcFMGm7IFNy0",
+    "precio": null,
+    "stock": 111
   },
   {
-    "title": "Coca Cola6",
-    "thumbnail": "sadasd6",
-    "category": "Bebidas6",
-    "price": 21321,
-    "id": 6
-  },
-  {
-    "title": "Coca Cola6",
-    "thumbnail": "sadasd6",
-    "category": "Bebidas6",
-    "price": 21321,
-    "id": 7
-  },
-  {
-    "title": "Pepsi7",
-    "thumbnail": "7777",
-    "category": "7777",
-    "price": 21321,
-    "id": 8
-  },
-  {
-    "title": "Pepsi7",
-    "thumbnail": "7777",
-    "category": "7777",
-    "price": 21321,
-    "id": 9
-  },
-  {
-    "title": "FANTA ACTUALIZADO 2",
-    "thumbnail": "111",
-    "category": "7777",
-    "price": 21321,
-    "id": 10
-  },
-  {
-    "title": "Pepsi7",
-    "thumbnail": "111",
-    "category": "7777",
-    "price": 21321,
-    "id": 11
+    "id": 7,
+    "timestamp": 1633005488145,
+    "nombre": "Capucha",
+    "descripcion": "Capucha Gris",
+    "codigo": "1111",
+    "foto": "https://i.picsum.photos/id/338/200/200.jpg?hmac=5S5SeR5xW8mbN3Ml7wTTJPePX392JafhcFMGm7IFNy0",
+    "precio": null,
+    "stock": 111
   }
 ]

@@ -1,0 +1,54 @@
+[
+  {
+    "id": 2,
+    "timestamp": "1632626867846",
+    "productos": [
+      {
+        "id": 3,
+        "timestamp": "1632626867846",
+        "nombre": "Perro2",
+        "descripcion": "Perro con colcha",
+        "codigo": "125",
+        "foto": "https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y",
+        "precio": "150",
+        "stock": "20"
+      },
+      {
+        "id": 5,
+        "timestamp": 1632878233884,
+        "nombre": "Globo",
+        "descripcion": "Globo Aerostatico",
+        "codigo": "555",
+        "foto": "https://i.picsum.photos/id/174/200/200.jpg?hmac=drl_DcYoPvaGCAF7hzG6zjvSnt77TUxwZFQz_-FDLuI",
+        "precio": 100,
+        "stock": 55
+      },
+      {
+        "id": 3,
+        "timestamp": "1632626867846",
+        "nombre": "Perro2",
+        "descripcion": "Acantilado",
+        "codigo": "125",
+        "foto": "https://i.picsum.photos/id/483/200/200.jpg?hmac=tIKQEdwuW7trzVGWGE-cAgtpmRJla51INgO9dvJG3hA",
+        "precio": "150",
+        "stock": "20"
+      }
+    ]
+  },
+  {
+    "timestamp": 1633029416383,
+    "productos": [
+      {
+        "id": 3,
+        "timestamp": "1632626867846",
+        "nombre": "Perro2",
+        "descripcion": "Acantilado",
+        "codigo": "125",
+        "foto": "https://i.picsum.photos/id/483/200/200.jpg?hmac=tIKQEdwuW7trzVGWGE-cAgtpmRJla51INgO9dvJG3hA",
+        "precio": "150",
+        "stock": "20"
+      }
+    ],
+    "id": 3
+  }
+]
