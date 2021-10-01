@@ -5,15 +5,16 @@ fetch("/productos/listar")
     productos.forEach((producto) => {
       let htmlSegment = `      
       <div class="card" >
-      <img src="${producto.foto}" style="width: 100px height: 100px " class="card-img-top" alt="...">
+      
+      <img src="${producto.foto}" style="width: 100px height: 100px " class="card-img-top " alt="...">
       <div class="card-body">
         <h5 class="card-title"> ${producto.nombre}</h5>
-        <p>Carrito Id: ${producto.id}</p>
+        <p>Producto Id: ${producto.id}</p>
          <p>Timestamp: ${producto.timestamp}</p> 
         <p class="card-text">Descripcion: ${producto.descripcion}</p> 
         <p class="card-text">Cantidad: ${producto.cantidad}</p> 
-        <p class="card-text">Stock: ${producto.stock}</p> 
-       
+        <p class="card-text">Precio: ${producto.precio}</p> 
+        <p class="card-text">Stock: ${producto.stock}</p>         
         <p></p>   
         <button class="btn btn-primary" onclick="AgregarProducto('${producto.id}')">Agregar a carrito</button>        
       </div>
@@ -74,6 +75,7 @@ fetch("/carritos/listar")
       htmlfooter = "",
       html = "";
     for (let i = 0; i < carritos.length; i++) {
+      let total = 0;
       htmlheader = `<div class="rounded cart shadow p-3 mb-5 bg-body rounded">
       <div class="row no-gutters">
         <div class="col-md-8">
@@ -85,6 +87,7 @@ fetch("/carritos/listar")
       if (undefined !== carritos[i].productos && carritos[i].productos.length) {
         htmlbody = "";
         for (let e = 0; e < carritos[i].productos.length; e++) {
+          total += parseInt(carritos[i].productos[e].precio);
           htmlbody =
             htmlbody +
             `<div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
@@ -93,19 +96,41 @@ fetch("/carritos/listar")
               <span class="spec">${carritos[i].productos[e].detalle}</span></div>
 						</div>
 						<div class="d-flex flex-row align-items-center"><span class="d-block">2</span>
-            <span class="d-block ml-5 font-weight-bold">$${carritos[i].productos[e].precio}</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
-					</div>`;
+            <span class="d-block ml-5 font-weight-bold">$${carritos[i].productos[e].precio}</span>
+            <i class="fa fa-trash ml-3 text-black-50" onclick="eliminarProductoCarrito()"></i></div>
+                    
+            </div>`;
         }
       } else {
         htmlbody = `<span class="ml-2">Sin Productos</span>`;
       }
       htmlfooter = `</div>
           </div>
+          <div class="col-md-4 summary">
+            <div>
+                <h5><b>Resumen de Compra</b></h5>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col" style="padding-left:0;">${carritos[i].productos.length}</div>
+                <div class="col text-right">${total}</div>
+            </div>            
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">TOTAL</div>
+                <div class="col text-right">${total}</div>
+            </div> <button class="btn btn-success">PAGAR</button>
         </div>
         </div>
+        
+        </div>
+        
       </div>`;
       html = html + htmlheader + htmlbody + htmlfooter;
     }
 
     document.getElementById("carritos").innerHTML = html;
   });
+
+function eliminarProductoCarrito() {
+  alert("eliminar");
+}
