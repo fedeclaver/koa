@@ -29,7 +29,7 @@ fetch("/productos/listar")
 function AgregarProducto(id) {
   let idCarrito = document.getElementById("idCarrito").value;
   if (idCarrito != "") {
-    fetch("/carrito/agregarProducto/" + idCarrito + "/" + id)
+    fetch("/carritos/agregarProducto/" + idCarrito + "/" + id)
       .then((res) => res.text())
       .then((res) => {
         alert(res);

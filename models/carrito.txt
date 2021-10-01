@@ -47,6 +47,16 @@
         "foto": "https://i.picsum.photos/id/483/200/200.jpg?hmac=tIKQEdwuW7trzVGWGE-cAgtpmRJla51INgO9dvJG3hA",
         "precio": "150",
         "stock": "20"
+      },
+      {
+        "id": 1,
+        "nombre": "Montañas",
+        "timestamp": 1632927760139,
+        "descripcion": "Montañas",
+        "codigo": "123",
+        "foto": "https://i.picsum.photos/id/79/200/200.jpg?hmac=jnCRb6UX5VWA4Kxl91zIBXPa2iJJsmVwzbxrzt6TahQ",
+        "precio": "50",
+        "stock": "12"
       }
     ],
     "id": 3

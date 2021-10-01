@@ -16,7 +16,7 @@ function AgregarProducto(id) {
   var idCarrito = document.getElementById("idCarrito").value;
 
   if (idCarrito != "") {
-    fetch("/carrito/agregarProducto/" + idCarrito + "/" + id).then(function (res) {
+    fetch("/carritos/agregarProducto/" + idCarrito + "/" + id).then(function (res) {
       return res.text();
     }).then(function (res) {
       alert(res);
