@@ -215,3 +215,55 @@ exports.eliminarCarrito = function _callee5(req, res) {
     }
   }, null, null, [[0, 7]]);
 };
+
+exports.eliminarProducto = function _callee6(req, res) {
+  var carrito, producto;
+  return regeneratorRuntime.async(function _callee6$(_context6) {
+    while (1) {
+      switch (_context6.prev = _context6.next) {
+        case 0:
+          _context6.prev = 0;
+          _context6.next = 3;
+          return regeneratorRuntime.awrap(Productos.getById(req.params.idCarrito));
+
+        case 3:
+          carrito = _context6.sent;
+
+          if (!carrito) {
+            res.status(404).json({
+              msg: "Carrito no encontrado"
+            });
+          }
+
+          _context6.next = 7;
+          return regeneratorRuntime.awrap(Carrito.eliminarProducto(req.params.idCarrito, req.params.id_prod));
+
+        case 7:
+          producto = _context6.sent;
+
+          if (producto) {
+            res.status(200).json({
+              msg: "El Producto se elimino correctamente"
+            });
+          } else {
+            res.status(500).json({
+              msg: "Error al agregando el Producto"
+            });
+          }
+
+          _context6.next = 15;
+          break;
+
+        case 11:
+          _context6.prev = 11;
+          _context6.t0 = _context6["catch"](0);
+          console.log(_context6.t0);
+          res.status(500).send("Error  al agregar Productos");
+
+        case 15:
+        case "end":
+          return _context6.stop();
+      }
+    }
+  }, null, null, [[0, 11]]);
+};

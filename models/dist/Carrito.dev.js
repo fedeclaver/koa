@@ -205,7 +205,7 @@ function () {
   }, {
     key: "agregarProducto",
     value: function agregarProducto(idCarrito, prod) {
-      var contenido, data, bandera, i;
+      var contenido, data, bandera, i, resultado;
       return regeneratorRuntime.async(function agregarProducto$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
@@ -221,7 +221,10 @@ function () {
               for (i = 0; i < data.length; i++) {
                 if (data[i].id == idCarrito) {
                   bandera = 1;
-                  data[i].productos.push(prod);
+                  resultado = data[i].filter(function (e) {
+                    return e.id !== parseInt(prod);
+                  });
+                  data[i].productos.push(resultado);
                 }
               }
 
@@ -230,7 +233,7 @@ function () {
                 break;
               }
 
-              throw new Error("Error al actualizar: no se encontr\xF3 el id ".concat(idCarrito));
+              throw new Error("Error al eliminar Producto: no se encontr\xF3 el id ".concat(prod));
 
             case 10:
               _context5.prev = 10;
@@ -240,7 +243,7 @@ function () {
               }));
 
             case 13:
-              return _context5.abrupt("return", prod.id);
+              return _context5.abrupt("return", idCarrito);
 
             case 16:
               _context5.prev = 16;
@@ -255,13 +258,65 @@ function () {
       }, null, this, [[10, 16]]);
     }
   }, {
-    key: "deleteAll",
-    value: function deleteAll() {
-      return regeneratorRuntime.async(function deleteAll$(_context6) {
+    key: "eliminarProducto",
+    value: function eliminarProducto(idCarrito, prod) {
+      var contenido, data, bandera, i;
+      return regeneratorRuntime.async(function eliminarProducto$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
             case 0:
               _context6.next = 2;
+              return regeneratorRuntime.awrap(fs.promises.readFile(this.nombrearchivo, "utf-8"));
+
+            case 2:
+              contenido = _context6.sent;
+              data = JSON.parse(contenido);
+              bandera = 0;
+
+              for (i = 0; i < data.length; i++) {
+                if (data[i].id == idCarrito) {
+                  bandera = 1;
+                  data[i].productos.push(prod);
+                }
+              }
+
+              if (!(bandera == 0)) {
+                _context6.next = 10;
+                break;
+              }
+
+              throw new Error("Error al actualizar: no se encontr\xF3 el id ".concat(idCarrito));
+
+            case 10:
+              _context6.prev = 10;
+              _context6.next = 13;
+              return regeneratorRuntime.awrap(fs.writeFile(this.nombrearchivo, JSON.stringify(data, null, 2), function (error, result) {
+                if (error) throw new Error("Error al actualizar: ".concat(error));
+              }));
+
+            case 13:
+              return _context6.abrupt("return", prod.id);
+
+            case 16:
+              _context6.prev = 16;
+              _context6.t0 = _context6["catch"](10);
+              throw new Error("Error al actualizar: ".concat(_context6.t0));
+
+            case 19:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, null, this, [[10, 16]]);
+    }
+  }, {
+    key: "deleteAll",
+    value: function deleteAll() {
+      return regeneratorRuntime.async(function deleteAll$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.next = 2;
               return regeneratorRuntime.awrap(fs.writeFile(this.nombrearchivo, "[]", function (error) {
                 if (error) {
                   throw new Error("Error en escritura: ".concat(error));
@@ -272,7 +327,7 @@ function () {
 
             case 2:
             case "end":
-              return _context6.stop();
+              return _context7.stop();
           }
         }
       }, null, this);
@@ -281,12 +336,12 @@ function () {
     key: "savefile",
     value: function savefile(data) {
       var contenido;
-      return regeneratorRuntime.async(function savefile$(_context7) {
+      return regeneratorRuntime.async(function savefile$(_context8) {
         while (1) {
-          switch (_context7.prev = _context7.next) {
+          switch (_context8.prev = _context8.next) {
             case 0:
-              _context7.prev = 0;
-              _context7.next = 3;
+              _context8.prev = 0;
+              _context8.next = 3;
               return regeneratorRuntime.awrap(fs.promises.writeFile(this.nombrearchivo, data, function (error) {
                 if (error) {
                   throw new Error("Error en escritura: ".concat(error));
@@ -296,17 +351,17 @@ function () {
               }));
 
             case 3:
-              contenido = _context7.sent;
-              return _context7.abrupt("return", "ok");
+              contenido = _context8.sent;
+              return _context8.abrupt("return", "ok");
 
             case 7:
-              _context7.prev = 7;
-              _context7.t0 = _context7["catch"](0);
-              throw new Error("Error en escritura: ".concat(_context7.t0));
+              _context8.prev = 7;
+              _context8.t0 = _context8["catch"](0);
+              throw new Error("Error en escritura: ".concat(_context8.t0));
 
             case 10:
             case "end":
-              return _context7.stop();
+              return _context8.stop();
           }
         }
       }, null, this, [[0, 7]]);

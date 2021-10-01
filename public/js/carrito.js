@@ -97,7 +97,7 @@ fetch("/carritos/listar")
 						</div>
 						<div class="d-flex flex-row align-items-center"><span class="d-block">2</span>
             <span class="d-block ml-5 font-weight-bold">$${carritos[i].productos[e].precio}</span>
-            <i class="fa fa-trash ml-3 text-black-50" onclick="eliminarProductoCarrito()"></i></div>
+            <i class="fa fa-trash ml-3 text-black-50" onclick="eliminarProductoCarrito,${carritos[i].id},${carritos[i].productos[e].id})"></i></div>
                     
             </div>`;
         }
@@ -131,6 +131,14 @@ fetch("/carritos/listar")
     document.getElementById("carritos").innerHTML = html;
   });
 
-function eliminarProductoCarrito() {
-  alert("eliminar");
+function eliminarProductoCarrito(id, idcarrito) {
+  if (idCarrito != "") {
+    fetch("/carritos/eliminarProducto/" + idCarrito + "/" + id)
+      .then((res) => res.text())
+      .then((res) => {
+        alert(res);
+        location.reload();
+        return false;
+      });
+  }
 }

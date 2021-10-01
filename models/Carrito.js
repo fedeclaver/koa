@@ -90,6 +90,37 @@ class Carrito {
     for (var i = 0; i < data.length; i++) {
       if (data[i].id == idCarrito) {
         bandera = 1;
+        let resultado = data[i].filter((e) => e.id !== parseInt(prod));
+        data[i].productos.push(resultado);
+      }
+    }
+    if (bandera == 0) {
+      throw new Error(
+        `Error al eliminar Producto: no se encontró el id ${prod}`
+      );
+    } else {
+      try {
+        await fs.writeFile(
+          this.nombrearchivo,
+          JSON.stringify(data, null, 2),
+          function (error, result) {
+            if (error) throw new Error(`Error al actualizar: ${error}`);
+          }
+        );
+        return idCarrito;
+      } catch (error) {
+        throw new Error(`Error al actualizar: ${error}`);
+      }
+    }
+  }
+
+  async eliminarProducto(idCarrito, prod) {
+    const contenido = await fs.promises.readFile(this.nombrearchivo, "utf-8");
+    const data = JSON.parse(contenido);
+    let bandera = 0;
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].id == idCarrito) {
+        bandera = 1;
         data[i].productos.push(prod);
       }
     }

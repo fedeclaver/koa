@@ -19,6 +19,13 @@ router.get(
   requireAuth.esAdmin,
   carritoController.agregarProducto
 );
+
+router.get(
+  "/eliminarProducto/:idCarrito/:id_prod",
+  requireAuth.esAdmin,
+  carritoController.eliminarProducto
+);
+
 router.delete(
   "/borrar/:id",
   requireAuth.esAdmin,

@@ -71,7 +71,7 @@ fetch("/carritos/listar").then(function (resp) {
 
       for (var e = 0; e < carritos[i].productos.length; e++) {
         total += parseInt(carritos[i].productos[e].precio);
-        htmlbody = htmlbody + "<div class=\"d-flex justify-content-between align-items-center mt-3 p-2 items rounded\">\n\t\t\t\t\t\t<div class=\"d-flex flex-row\"><img class=\"rounded\" src=\" ".concat(carritos[i].productos[e].foto, "\" width=\"40\">\n\t\t\t\t\t\t\t<div class=\"ml-2\"><span class=\"font-weight-bold d-block\"> ").concat(carritos[i].productos[e].nombre, "</span>\n              <span class=\"spec\">").concat(carritos[i].productos[e].detalle, "</span></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex flex-row align-items-center\"><span class=\"d-block\">2</span>\n            <span class=\"d-block ml-5 font-weight-bold\">$").concat(carritos[i].productos[e].precio, "</span>\n            <i class=\"fa fa-trash ml-3 text-black-50\" onclick=\"eliminarProductoCarrito()\"></i></div>\n                    \n            </div>");
+        htmlbody = htmlbody + "<div class=\"d-flex justify-content-between align-items-center mt-3 p-2 items rounded\">\n\t\t\t\t\t\t<div class=\"d-flex flex-row\"><img class=\"rounded\" src=\" ".concat(carritos[i].productos[e].foto, "\" width=\"40\">\n\t\t\t\t\t\t\t<div class=\"ml-2\"><span class=\"font-weight-bold d-block\"> ").concat(carritos[i].productos[e].nombre, "</span>\n              <span class=\"spec\">").concat(carritos[i].productos[e].detalle, "</span></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex flex-row align-items-center\"><span class=\"d-block\">2</span>\n            <span class=\"d-block ml-5 font-weight-bold\">$").concat(carritos[i].productos[e].precio, "</span>\n            <i class=\"fa fa-trash ml-3 text-black-50\" onclick=\"eliminarProductoCarrito,").concat(carritos[i].id, ",").concat(carritos[i].productos[e].id, ")\"></i></div>\n                    \n            </div>");
       }
     } else {
       htmlbody = "<span class=\"ml-2\">Sin Productos</span>";
@@ -84,6 +84,14 @@ fetch("/carritos/listar").then(function (resp) {
   document.getElementById("carritos").innerHTML = html;
 });
 
-function eliminarProductoCarrito() {
-  alert("eliminar");
+function eliminarProductoCarrito(id, idcarrito) {
+  if (idCarrito != "") {
+    fetch("/carritos/eliminarProducto/" + idCarrito + "/" + id).then(function (res) {
+      return res.text();
+    }).then(function (res) {
+      alert(res);
+      location.reload();
+      return false;
+    });
+  }
 }
