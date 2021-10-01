@@ -4,16 +4,6 @@
     "timestamp": "1632626867846",
     "productos": [
       {
-        "id": 3,
-        "timestamp": "1632626867846",
-        "nombre": "Perro2",
-        "descripcion": "Perro con colcha",
-        "codigo": "125",
-        "foto": "https://i.picsum.photos/id/1025/4951/3301.jpg?hmac=_aGh5AtoOChip_iaMo8ZvvytfEojcgqbCH7dzaz-H8Y",
-        "precio": "150",
-        "stock": "20"
-      },
-      {
         "id": 5,
         "timestamp": 1632878233884,
         "nombre": "Globo",
@@ -24,7 +14,7 @@
         "stock": 55
       },
       {
-        "id": 3,
+        "id": 6,
         "timestamp": "1632626867846",
         "nombre": "Perro2",
         "descripcion": "Acantilado",

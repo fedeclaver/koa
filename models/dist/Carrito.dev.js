@@ -205,7 +205,7 @@ function () {
   }, {
     key: "agregarProducto",
     value: function agregarProducto(idCarrito, prod) {
-      var contenido, data, bandera, i, resultado;
+      var contenido, data, bandera, i;
       return regeneratorRuntime.async(function agregarProducto$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
@@ -219,12 +219,11 @@ function () {
               bandera = 0;
 
               for (i = 0; i < data.length; i++) {
-                if (data[i].id == idCarrito) {
-                  bandera = 1;
-                  resultado = data[i].filter(function (e) {
-                    return e.id !== parseInt(prod);
-                  });
-                  data[i].productos.push(resultado);
+                for (i = 0; i < data.length; i++) {
+                  if (data[i].id == idCarrito) {
+                    bandera = 1;
+                    data[i].productos.push(prod);
+                  }
                 }
               }
 
@@ -260,7 +259,7 @@ function () {
   }, {
     key: "eliminarProducto",
     value: function eliminarProducto(idCarrito, prod) {
-      var contenido, data, bandera, i;
+      var contenido, data, bandera, i, resultado;
       return regeneratorRuntime.async(function eliminarProducto$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
@@ -276,7 +275,10 @@ function () {
               for (i = 0; i < data.length; i++) {
                 if (data[i].id == idCarrito) {
                   bandera = 1;
-                  data[i].productos.push(prod);
+                  resultado = data[i].productos.filter(function (e) {
+                    return e.id !== parseInt(prod);
+                  });
+                  data[i].productos = resultado;
                 }
               }
 
@@ -295,7 +297,7 @@ function () {
               }));
 
             case 13:
-              return _context6.abrupt("return", prod.id);
+              return _context6.abrupt("return", prod);
 
             case 16:
               _context6.prev = 16;

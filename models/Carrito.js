@@ -88,10 +88,11 @@ class Carrito {
     const data = JSON.parse(contenido);
     let bandera = 0;
     for (var i = 0; i < data.length; i++) {
-      if (data[i].id == idCarrito) {
-        bandera = 1;
-        let resultado = data[i].filter((e) => e.id !== parseInt(prod));
-        data[i].productos.push(resultado);
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].id == idCarrito) {
+          bandera = 1;
+          data[i].productos.push(prod);
+        }
       }
     }
     if (bandera == 0) {
@@ -121,7 +122,10 @@ class Carrito {
     for (var i = 0; i < data.length; i++) {
       if (data[i].id == idCarrito) {
         bandera = 1;
-        data[i].productos.push(prod);
+        let resultado = data[i].productos.filter(
+          (e) => e.id !== parseInt(prod)
+        );
+        data[i].productos = resultado;
       }
     }
     if (bandera == 0) {
@@ -135,7 +139,7 @@ class Carrito {
             if (error) throw new Error(`Error al actualizar: ${error}`);
           }
         );
-        return prod.id;
+        return prod;
       } catch (error) {
         throw new Error(`Error al actualizar: ${error}`);
       }

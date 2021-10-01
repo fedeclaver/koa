@@ -82,7 +82,7 @@ exports.eliminarCarrito = async (req, res) => {
 
 exports.eliminarProducto = async (req, res) => {
   try {
-    let carrito = await Productos.getById(req.params.idCarrito);
+    let carrito = await Carrito.getById(req.params.idCarrito);
     if (!carrito) {
       res.status(404).json({ msg: "Carrito no encontrado" });
     }
@@ -93,7 +93,7 @@ exports.eliminarProducto = async (req, res) => {
     if (producto) {
       res.status(200).json({ msg: `El Producto se elimino correctamente` });
     } else {
-      res.status(500).json({ msg: "Error al agregando el Producto" });
+      res.status(500).json({ msg: "Error al eliminando el Producto" });
     }
   } catch (error) {
     console.log(error);

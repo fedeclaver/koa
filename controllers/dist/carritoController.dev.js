@@ -224,7 +224,7 @@ exports.eliminarProducto = function _callee6(req, res) {
         case 0:
           _context6.prev = 0;
           _context6.next = 3;
-          return regeneratorRuntime.awrap(Productos.getById(req.params.idCarrito));
+          return regeneratorRuntime.awrap(Carrito.getById(req.params.idCarrito));
 
         case 3:
           carrito = _context6.sent;
@@ -247,7 +247,7 @@ exports.eliminarProducto = function _callee6(req, res) {
             });
           } else {
             res.status(500).json({
-              msg: "Error al agregando el Producto"
+              msg: "Error al eliminando el Producto"
             });
           }
 
