@@ -1,3 +1,7 @@
+$('a[href$="#Modal"]').on("click", function () {
+  $("#Modal").modal("show");
+});
+
 let url = "/productos/listar";
 fetch(url)
   .then((resp) => resp.json())
@@ -16,6 +20,7 @@ fetch(url)
         <p class="card-text">Código:${producto.codigo}</p>
         <p class="card-text">Precio:${producto.precio}</p>
         <p class="card-text">Stock:${producto.stock}</p>
+        <button class="btn btn-warning" onclick="editarProducto('${producto.id}')">Editar</button>  
         <button class="btn btn-danger" onclick="borrarProducto('${producto.id}')">Eliminar</button>        
       </div>
     
@@ -29,6 +34,19 @@ function borrarProducto(id) {
   //alert(id);
   fetch("/productos/borrar/" + id, {
     method: "DELETE",
+  })
+    .then((res) => res.text())
+    .then((res) => {
+      alert(res);
+      location.reload();
+      return false;
+    });
+}
+
+function editarProducto(id) {
+  //alert(id);
+  fetch("/productos/editar/" + id, {
+    method: "EDIT",
   })
     .then((res) => res.text())
     .then((res) => {
