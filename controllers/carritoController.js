@@ -2,12 +2,12 @@ const carritosDao = require("../daos/carritos/index.js");
 
 const productosDao = require("../daos/productos/index.js");
 
-
+const parse_obj = obj => JSON.parse(JSON.stringify(obj))
 var http = require("http");
 
 exports.crearCarrito = async (req, res) => {
   try {
-       objeto = Object.assign({ timestamp: Date.now() , { productos: [] }});
+       objeto = Object.assign({ timestamp: Date.now() ,  productos: [''] });
        
     const idCarrito = await carritosDao.guardar(objeto);
     if (idCarrito) {
@@ -26,16 +26,21 @@ exports.crearCarrito = async (req, res) => {
 
 exports.agregarProducto = async (req, res) => {
   try {
-    let producto = await Productos.getById(req.params.id_prod);
+    let carrito = await carritosDao.getById(req.params.idCarrito);
+    if (!carrito) {
+      res.status(404).json({ msg: "Carrito no encontrado" });
+    }
+    let producto = await productosDao.getById(req.params.id_prod);
     if (!producto) {
       res.status(404).json({ msg: "Producto no encontrado" });
     }
-    let carrito = await carritosDao.agregarProducto(req.params.idCarrito, producto);
-    if (carrito) {
+    carrito.productos.push(producto)
+    let carritoact = await carritosDao.update(carrito);
+    if (carritoact) {
       res
         .status(200)
         .redirect("/index.html")
-        .json({ msg: `El Producto id:${carrito} se agregó correctamente` });
+        .json({ msg: `El Producto se agregó correctamente` });
         
     } else {
       res.status(500).json({ msg: "Error al agregando el Producto" });
@@ -49,8 +54,7 @@ exports.agregarProducto = async (req, res) => {
 exports.obtenerCarritos = async (req, res) => {
   try {
     let carritos = await carritosDao.getAll();    
-    res.setHeader("Content-Type", "application/json");
-    res.json(JSON.parse(carritos));
+    res.json(carritos)
   } catch (error) {
     console.log(error);
     res.status(500).json("Error obtenerCarritos");
@@ -90,11 +94,16 @@ exports.eliminarProducto = async (req, res) => {
     if (!carrito) {
       res.status(404).json({ msg: "Carrito no encontrado" });
     }
-    let producto = await carritosDao.eliminarProducto(
-      req.params.idCarrito,
-      req.params.id_prod
-    );
-    if (producto) {
+    let producto = await productosDao.getById(req.params.id_prod);
+    if (!producto) {
+      res.status(404).json({ msg: "Producto no encontrado" });
+    }
+
+
+    let resultado = carrito.productos.filter((e) => e.id !== parseInt(req.params.id_prod));
+    carrito.productos = parse_obj(resultado[0]);
+    let carritoact = await carritosDao.update(carrito);     
+    if (carritoact) {
       res.status(200).json({ msg: `El Producto se elimino correctamente` });
     } else {
       res.status(500).json({ msg: "Error al eliminando el Producto" });

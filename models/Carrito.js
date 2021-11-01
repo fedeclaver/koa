@@ -122,9 +122,7 @@ class Carrito {
     for (var i = 0; i < data.length; i++) {
       if (data[i].id == idCarrito) {
         bandera = 1;
-        let resultado = data[i].productos.filter(
-          (e) => e.id !== parseInt(prod)
-        );
+        let resultado = data[i].productos.filter((e) => e.id !== parseInt(prod));
         data[i].productos = resultado;
       }
     }

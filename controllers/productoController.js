@@ -14,7 +14,7 @@ exports.crearProducto = async (req, res) => {
           res
             .status(200)
             .redirect("/producto.html")
-            .json({ msg: `Producto insertado correctamente id:${idproducto}` });
+            .json({ msg: `Producto insertado correctamente id:${producto.id}` });
         } else {
           res.status(500).json({ msg: "Error al crearProducto" });
         }
