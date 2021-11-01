@@ -1,16 +1,19 @@
-const Contenedor = require("../models/Carrito");
-const Carrito = new Contenedor("./models/carrito.txt");
-const Productos = new Contenedor("./models/productos.txt");
+const carritosDao = require("../daos/carritos/index.js");
+
+const productosDao = require("../daos/productos/index.js");
+
+
 var http = require("http");
 
 exports.crearCarrito = async (req, res) => {
   try {
-    let objeto = { productos: [] };
-    objeto = Object.assign({ timestamp: Date.now() }, objeto);
-    const idCarrito = await Carrito.save(objeto);
+       objeto = Object.assign({ timestamp: Date.now() , { productos: [] }});
+       
+    const idCarrito = await carritosDao.guardar(objeto);
     if (idCarrito) {
       res
         .status(200)
+        .redirect("/index.html")
         .json({ msg: `Carrito insertado correctamente id:${idCarrito}` });
     } else {
       res.status(500).json({ msg: "Error al crearCarrito" });
@@ -27,11 +30,13 @@ exports.agregarProducto = async (req, res) => {
     if (!producto) {
       res.status(404).json({ msg: "Producto no encontrado" });
     }
-    let carrito = await Carrito.agregarProducto(req.params.idCarrito, producto);
+    let carrito = await carritosDao.agregarProducto(req.params.idCarrito, producto);
     if (carrito) {
       res
         .status(200)
+        .redirect("/index.html")
         .json({ msg: `El Producto id:${carrito} se agregó correctamente` });
+        
     } else {
       res.status(500).json({ msg: "Error al agregando el Producto" });
     }
@@ -43,10 +48,9 @@ exports.agregarProducto = async (req, res) => {
 
 exports.obtenerCarritos = async (req, res) => {
   try {
-    let carritos = await Carrito.getAll();
-    let data = JSON.parse(carritos);
+    let carritos = await carritosDao.getAll();    
     res.setHeader("Content-Type", "application/json");
-    res.json(data);
+    res.json(JSON.parse(carritos));
   } catch (error) {
     console.log(error);
     res.status(500).json("Error obtenerCarritos");
@@ -55,7 +59,7 @@ exports.obtenerCarritos = async (req, res) => {
 
 exports.obtenerCarrito = async (req, res) => {
   try {
-    let carrito = await Carrito.getById(req.params.id);
+    let carrito = await carritosDao.getById(req.params.id);
     if (!carrito) {
       res.status(404).json({ msg: "Carrito no encontrado" });
     }
@@ -82,11 +86,11 @@ exports.eliminarCarrito = async (req, res) => {
 
 exports.eliminarProducto = async (req, res) => {
   try {
-    let carrito = await Carrito.getById(req.params.idCarrito);
+    let carrito = await carritosDao.getById(req.params.idCarrito);
     if (!carrito) {
       res.status(404).json({ msg: "Carrito no encontrado" });
     }
-    let producto = await Carrito.eliminarProducto(
+    let producto = await carritosDao.eliminarProducto(
       req.params.idCarrito,
       req.params.id_prod
     );
