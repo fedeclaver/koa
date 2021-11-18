@@ -1,11 +1,11 @@
 const express = require("express");
 const { Router } = express;
 const router = new Router();
-const requireAuth = require("../middleware/auth");
+const requireAuth = require("../middleware/acceso.js");
 const productoController = require("../controllers/productoController");
 
 //api/productos
-router.post("/agregar", productoController.crearProducto);
+router.post("/agregar", requireAuth.esAdmin,productoController.crearProducto);
 
 router.get("/listar", requireAuth.esAdmin, productoController.obtenerProductos);
 router.put(
