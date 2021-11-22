@@ -1,7 +1,7 @@
 function loguin() {
   
     nombre ={username:  document.getElementsByName("nombre")[0].value} ;
-    fetch("/auth/login", {
+    fetch("/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -20,7 +20,7 @@ function loguin() {
   function logout() {
   
    
-    fetch("/auth/logout")    
+    fetch("/logout")    
     .then((res) => res.json())
     .then((texto) => {
      

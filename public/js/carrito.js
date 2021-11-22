@@ -142,3 +142,14 @@ function eliminarProductoCarrito(id, idc) {
       });
   }
 }
+
+function login(){
+  window.open ("popup.html","mywindow", "width=350,height=250");
+}
+
+window.addEventListener('message', function(e){
+  username = document.querySelector("#username");
+  password = document.querySelector("#password");
+  username.innerText = e.data.username;
+  password.innerText = e.data.password;
+})
