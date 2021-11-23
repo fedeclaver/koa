@@ -13,6 +13,9 @@ function loguin() {
     .then((texto) => {
      
     document.getElementById("loguin").innerHTML = JSON.stringify(texto.msg);
+    setTimeout(() => {
+      location.href = '/'
+  }, 2000)
     })
   }
 
@@ -25,5 +28,8 @@ function loguin() {
     .then((texto) => {
      
     document.getElementById("logout").innerHTML = JSON.stringify(texto.msg);
+    setTimeout(() => {
+      location.href = '/loguin.html'
+  }, 2000)
     })
   }

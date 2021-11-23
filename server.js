@@ -9,7 +9,7 @@ const app = express();
 PORT = process.env.PORT | 8080;
 const Cache = require('node-cache');
 const cache = new Cache()
-
+//const requireAuth = require("../middleware/acceso.js");
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -32,6 +32,9 @@ app.use(session({
    secret: 'secreto',
    resave: false,
    saveUninitialized: false,
+   cookie: {
+    maxAge: 60000
+}
 }));
 
 
@@ -77,31 +80,29 @@ app.get('/', (req, res) => {
 
 app.get('/logout', (req, res) => {
   const nombre = req.session.nombre
-  if (nombre != 'undefined'){
+  if (nombre){
   req.session.destroy(err=>{
-      if (err){
-         res.status(500);
-          res.json({error: err});
-      } else {
-          if (nombre){
+    if (!err) {
+          
             res.json({ msg: `Hasta luego ${nombre}!`});
           
           } else {
-            res.json({ msg: `Hasta luego `});
+            res.status(500);
+            res.json({error: err});
           }
       }
-  });
+  );
 }else {
   res.json({ msg: `no hay session `});
 }
 });
 
 app.post('/login', (req, res) => {
-  if (!req.query.nombre) {
-  
+  const nombre = req.session?.nombre
+  if (nombre) {
     res.json({ msg: `Te damos la bienvenida!`});
 } else {
-    req.session.nombre = req.query.nombre;
+    req.session.nombre = req.body.username;
     res.json({ msg: `Bienvenido ${req.session.nombre}!`});
 }
       
