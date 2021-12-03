@@ -9,6 +9,7 @@ const app = express();
 PORT = process.env.PORT | 8080;
 const Cache = require('node-cache');
 const cache = new Cache()
+const { fork } = require('child_process')
 //const requireAuth = require("../middleware/acceso.js");
 
 app.use(express.static("public"));
@@ -37,37 +38,33 @@ app.use(session({
 }
 }));
 
-
-app.get('/info', (req,res) => {
-  console.log('------------ req.session -------------')
-  console.log(req.session)
-  console.log('--------------------------------------')
-
-  console.log('----------- req.sessionID ------------')
-  console.log(req.sessionID)
-  console.log('--------------------------------------')
-
-  console.log('----------- req.cookies ------------')
-  console.log(req.cookies)
-  console.log('--------------------------------------')
-
-  console.log('---------- req.sessionStore ----------')
-  console.log(req.sessionStore)
-  console.log('--------------------------------------')
-
-  if(req.session.contador) {
-    req.session.contador++
-    res.send(`Ud ha visitado el sitio ${req.session.contador} veces.`)
+app.get('/random', (req, res) => {
+  const numeroRandom = fork('./random.js')
+  let cantidad = 0
+  if (req.query.cant) {
+      cantidad = req.query.cant
+  } else {
+      cantidad = 100000000
   }
-  else {
-    req.session.contador = 1
-    res.send('Bienvenido! Send info ok!')
-  }
-
-
- 
+  numeroRandom.send((cantidad).toString());
+  numeroRandom.on("message", obj => {
+      res.end(JSON.stringify(obj, null, 3));
+  });
 })
 
+
+// info
+app.get('/info', (req, res) => {
+  let informacion = {}
+  informacion['Argumentos de entrada:'] = `${process.argv[2]} ${process.argv[3]} ${process.argv[4]}`;
+  informacion['Nombre de plataforma:'] = process.platform;
+  informacion['Version de Node:'] = process.version;
+  informacion['Uso de memoria:'] = process.memoryUsage();
+  informacion['Path de ejecucion:'] = process.execPath;
+  informacion['Process id:'] = process.pid;
+  informacion['Carpeta corriente:'] = process.cwd();
+  res.send(informacion)
+})
 
 
 
@@ -107,9 +104,18 @@ app.post('/login', (req, res) => {
 }
       
 })
+// pongo a escuchar el servidor en el puerto indicado
+// definir puerto por linea de comandos
+let port = 0
+if (process.argv[2] && !isNaN(process.argv[2])) {
+    puerto = process.argv[2]
+} else if (isNaN(process.argv[2])) {
+    console.log('No se ingresó un puerto válido, se usará el 8080')
+    puerto = 8080
+}
 
-
-const server = app.listen(PORT, () => {
+const server = app.listen(puerto, () => {
+  console.log(process.argv)
   console.log(`Servidor http escuchando en el puerto ${server.address().port}`);
 });
 server.on("error", (error) => console.log(`Error en servidor ${error}`));
