@@ -14,3 +14,14 @@ info:    Forever stopped processes:
 data:        uid  command                            script                                                               forever pid   id logfile                         uptime
 data:    [0] ihat "D:\Program Files\nodejs\node.exe" E:\Users\Fede\Documents\DESA\clase15b\backend\server.js 8080 cluster 20972   20456    C:\Users\Fede\.forever\ihat.log 0:0:4:30.887999999999977
 data:    [1] r9RQ "D:\Program Files\nodejs\node.exe" E:\Users\Fede\Documents\DESA\clase15b\backend\server.js 2020 cluster 16432   5776     C:\Users\Fede\.forever\r9RQ.log 0:0:3:37.528999999999996
+
+comandos que deben ejecutarse:
+
+nodemon .\server.js  8081  cluster
+nodemon .\server.js  8080  fork
+
+forever start .\server.js  8080  fork
+forever start .\server.js  8082  fork
+forever start .\server.js  8083  fork
+forever start .\server.js  8084  fork
+forever start .\server.js  8085  fork
