@@ -9,7 +9,12 @@ const app = express();
 PORT = process.env.PORT | 8080;
 const Cache = require('node-cache');
 const cache = new Cache()
-const { fork } = require('child_process')
+const { fork } = require('child_process');
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
+
+
 //const requireAuth = require("../middleware/acceso.js");
 
 app.use(express.static("public"));
@@ -63,6 +68,7 @@ app.get('/info', (req, res) => {
   informacion['Path de ejecucion:'] = process.execPath;
   informacion['Process id:'] = process.pid;
   informacion['Carpeta corriente:'] = process.cwd();
+  //informacion['Carpeta corriente:'] = os.cpus().length ;
   res.send(informacion)
 })
 
@@ -113,10 +119,51 @@ if (process.argv[2] && !isNaN(process.argv[2])) {
     console.log('No se ingresó un puerto válido, se usará el 8080')
     puerto = 8080
 }
+if (process.argv[3] && isNaN(process.argv[3])) {
+  modo = process.argv[3] 
+}if (!isNaN(process.argv[3])) {
+  console.log('No se ingresó modo valido, se usará el modo fork')
+  modo = "fork"
+}
 
-const server = app.listen(puerto, () => {
-  console.log(process.argv)
-  console.log(`Servidor http escuchando en el puerto ${server.address().port}`);
-});
+if(modo == "cluster"){
+  console.log('modo cluster');
+
+  if (cluster.isMaster) {
+    console.log('num CPUs', numCPUs)
+    console.log(`PID MASTER ${process.pid}`)
+
+
+        for (let i = 0; i < numCPUs; i++) {
+          cluster.fork();
+      }
+
+      cluster.on('exit', (worker, code, signal) => {
+        console.log(`Worker ${worker.process.pid} died`)
+        cluster.fork();
+})
+
+} else{
+  console.log(`Worker PID ${process.pid}`)
+  const server = app.listen(puerto, () => {
+    console.log(process.argv)
+    console.log(`Servidor http escuchando en el puerto ${server.address().port} - PID ${process.pid} - ${ new Date() }`)
+  });
+  server.on("error", (error) => console.log(`Error en servidor ${error}`));
+  }
+
+}
+else{ // fork
+console.log('modo fork')
+const server = app.listen(puerto, function () {
+  console.log(`Servidor express en ${server.address().port} - PID ${process.pid} - ${ new Date() }`)
+})
 server.on("error", (error) => console.log(`Error en servidor ${error}`));
- 
+}
+
+
+
+
+
+
+
