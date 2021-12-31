@@ -1,141 +1,232 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario de Ingreso de Productos</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"/>
-      <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-    <script src="js/carrito.js"></script>
-    <link rel="stylesheet" href="css/estilos.css" />
-  </head>
 
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
+  
+</head>
 
-    
-    <!-- SECCION NAVEGACIÓN-->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
-      <div class="container">
-        <a href="#" class="navbar-brand"> <strong>Federico</strong> Claver </a>
+<body>
 
-        <button
-          type="button"
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#menu-principal"
-          aria-controls="menu-principal"
-          aria-expanded="false"
-          aria-label="Desplegar menú de navegación">
-          <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container flex-row-reverse">
+            <div id="user"></div>
+            <div id="btnLogout"></div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+
+
+        <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#modalAddProduct">
+            Agregar Producto
         </button>
 
-        <div class="collapse navbar-collapse" id="menu-principal">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a href="/producto.html" class="nav-link">Productos</a>
-            </li>
-            
-            <li class="nav-item">
-              <a href="/index.html" class="nav-link">Carrito</a>
-            </li>
-            <li class="nav-item">
-              <a href="/loguin.html" class="nav-link">loguin</a>
-            </li>           
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="container mt-3">
-      <div class="jumbotron">
-        <h1>Productos</h1>
-        <br />
-        <div class="row">
-          <div class="form-group row">
-            <label for="nombre" class="col-form-label col-sm-4">id Carrito</label>
-            <div class="col-sm-8">
-              <input     type="number"class="form-control"  id="idCarrito" placeholder="id Carrito"   name="idCarrito"/>
+        <!-- Form busqueda productos -->
+        <form id="formSearch" class="mt-4">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="optionsSearch">Filtrar productos por:</label>
+                </div>
+                <select class="custom-select" name="optionsSearch" id="optionsSearch">
+                    <option selected>Elegir una opción..</option>
+                    <option value="1">Nombre</option>
+                    <option value="2">Código</option>
+                    <option value="3">Precio</option>
+                    <option value="4">Stock</option>
+                </select>
             </div>
-          </div>
-          <div id="productosCard"></div>
-          </div>
+            <div class="row g-3">
+                <div style="display: none;" class="col-6" id="buscarPorNombre">
+                    <input class="form-control form-control-sm" id="inputSearchNombre" type="text"
+                        name="inputSearchNombre" placeholder="Ingrese un nombre de producto..">
+                </div>
+                <div style="display: none;" class="col-6" id="buscarPorCodigo">
+                    <input class="form-control form-control-sm" id="inputSearchCodigo" type="text"
+                        name="inputSearchCodigo" placeholder="Ingrese un código de producto..">
+                </div>
+                <div style="display: none;" class="col-6" id="buscarPorPrecio">
+                    <input class="form-control form-control-sm" id="inputSearchPrecioMin" type="number" step="0.01"
+                        name="inputSearchPrecioMin" placeholder="Precio Min">
+
+                    <input class="form-control form-control-sm" id="inputSearchPrecioMax" type="number" step="0.01"
+                        name="inputSearchPrecioMax" placeholder="Precio Max">
+                </div>
+                <div style="display: none;" class="col-6" id="buscarPorStock">
+                    <input class="form-control form-control-sm" id="inputSearchStockMin" type="number"
+                        name="inputSearchStockMin" placeholder="Stock Min">
+                    <input class="form-control form-control-sm" id="inputSearchStockMax" type="number"
+                        name="inputSearchStockMax" placeholder="Stock Max">
+                </div>
+                <div style="display: none;" class="col-6" id="formSearchBtns">
+                    <button type="submit" class="btn btn-sm btn-secondary">Buscar</button>
+                    <button type="reset" class="btn btn-sm btn-secondary" onclick="limpiarFiltros()">Limpiar
+                        filtros</button>
+                </div>
+            </div>
+
         </form>
-      </div>
+
+        <!-- Modal Agregar producto -->
+        <div class="modal fade" id="modalAddProduct" tabindex="-1" role="dialog" aria-labelledby="modalAddProductLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAddProductLabel">Agregar nuevo producto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formAddProduct" autocomplete="off">
+                            <div class="row g-3 mb-4">
+                                <div class="col-2">
+                                    <label class="form-label" for="codigo">Código</label>
+                                    <input class="form-control form-control-sm" id="codigo" type="text" name="codigo"
+                                        required>
+                                </div>
+                                <div class="col-4">
+                                    <label class="form-label" for="nombre">Nombre de Producto</label>
+                                    <input class="form-control form-control-sm" id="nombre" type="text" name="nombre"
+                                        required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="descripcion">Descripción de Producto</label>
+                                    <input class="form-control form-control-sm" id="descripcion" type="text"
+                                        name="descripcion">
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <label class="form-label" for="precio">Precio</label>
+                                    <input class="form-control form-control-sm" id="precio" type="number" step="0.01"
+                                        name="precio" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label" for="stock">Stock</label>
+                                    <input class="form-control form-control-sm" id="stock" type="number" step="0.01"
+                                        name="stock">
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-12">
+                                    <label class="form-label" for="foto">Imagen (url)</label>
+                                    <input class="form-control form-control-sm" id="foto" type="text" name="foto">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Guardar</button>
+                            <button id="btnCancelarAdd" type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Editar producto -->
+        <div class="modal fade" id="modalEditProduct" tabindex="-1" role="dialog"
+            aria-labelledby="modalEditProductLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEditProductLabel">Editar producto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formEditProduct" autocomplete="off">
+                            <div class="row g-3 mb-4">
+                                <div class="col-2">
+                                    <label class="form-label">Código</label>
+                                    <input class="form-control form-control-sm" id="edit_codigo" type="text"
+                                        name="codigo" required>
+                                </div>
+                                <div class="col-4">
+                                    <label class="form-label">Nombre de Producto</label>
+                                    <input class="form-control form-control-sm" id="edit_nombre" type="text"
+                                        name="nombre" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Descripción de Producto</label>
+                                    <input class="form-control form-control-sm" id="edit_descripcion" type="text"
+                                        name="descripcion">
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <label class="form-label">Precio</label>
+                                    <input class="form-control form-control-sm" id="edit_precio" type="number"
+                                        step="0.01" name="precio" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Stock</label>
+                                    <input class="form-control form-control-sm" id="edit_stock" type="number"
+                                        step="0.01" name="stock">
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-12">
+                                    <label class="form-label">Imagen (url)</label>
+                                    <input class="form-control form-control-sm" id="edit_foto" type="text" name="foto">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Guardar</button>
+                            <button id="btnCancelarEdit" type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de productos -->
+        <h2 class="mt-4">Lista de productos</h2>
+        <div id="app" class="row row-cols-1 row-cols-md-4 g-4 mb-4"></div>
+
+        <!-- Carrito de compras -->
+        <h2>Carrito de compras</h2>
+        <div class="table-responsive">
+            <table class="table table-dark align-middle">
+                <thead>
+                    <tr>
+                        <th>Foto Producto</th>
+                        <th>Nombre de Producto</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="carrito">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container">
+            <button class="btn btn-success float-right" onclick="newCarrito()">Generar Pedido</button>
+        </div>
+
     </div>
-    <div class="container mt-3">
-      <div class="jumbotron">
-        <h1>Carritos</h1>
-        <!-- Botón de envío -->
 
-        <button onclick="agregarCarrito()" class="btn btn-success m-3" >Agregar</button>
-        
-    <div id="carritos"></div>
-    </div>
-  </div>
+    <script src="/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
-    
+</body>
 
-
-  </body>
-
-    <footer>
-      <div class="social-media-links">
-        <ul>
-          <li>
-            <!-- twitter -->
-            <a href="#">
-              <svg class="glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                <path class="st0" d="M9.5 27.1c11.2 0 17.4-9.3 17.4-17.4 0-0.3 0-0.5 0-0.8 1.2-0.9 2.2-1.9 3-3.2 -1.1 0.5-2.3 0.8-3.5 1 1.3-0.8 2.2-2 2.7-3.4 -1.2 0.7-2.5 1.2-3.9 1.5 -1.1-1.2-2.7-1.9-4.5-1.9 -3.4 0-6.1 2.7-6.1 6.1 0 0.5 0.1 0.9 0.2 1.4C9.7 10.1 5.2 7.7 2.2 4 1.7 4.9 1.4 6 1.4 7.1c0 2.1 1.1 4 2.7 5.1 -1 0-1.9-0.3-2.8-0.8 0 0 0 0.1 0 0.1 0 3 2.1 5.4 4.9 6 -0.5 0.1-1.1 0.2-1.6 0.2 -0.4 0-0.8 0-1.1-0.1 0.8 2.4 3 4.2 5.7 4.2 -2.1 1.6-4.7 2.6-7.6 2.6 -0.5 0-1 0-1.5-0.1C2.8 26.1 6 27.1 9.5 27.1"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                <path class="st0" d="M9.5 27.1c11.2 0 17.4-9.3 17.4-17.4 0-0.3 0-0.5 0-0.8 1.2-0.9 2.2-1.9 3-3.2 -1.1 0.5-2.3 0.8-3.5 1 1.3-0.8 2.2-2 2.7-3.4 -1.2 0.7-2.5 1.2-3.9 1.5 -1.1-1.2-2.7-1.9-4.5-1.9 -3.4 0-6.1 2.7-6.1 6.1 0 0.5 0.1 0.9 0.2 1.4C9.7 10.1 5.2 7.7 2.2 4 1.7 4.9 1.4 6 1.4 7.1c0 2.1 1.1 4 2.7 5.1 -1 0-1.9-0.3-2.8-0.8 0 0 0 0.1 0 0.1 0 3 2.1 5.4 4.9 6 -0.5 0.1-1.1 0.2-1.6 0.2 -0.4 0-0.8 0-1.1-0.1 0.8 2.4 3 4.2 5.7 4.2 -2.1 1.6-4.7 2.6-7.6 2.6 -0.5 0-1 0-1.5-0.1C2.8 26.1 6 27.1 9.5 27.1"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <!-- facebook -->
-            <a href="#">
-              <svg class="glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                <path class="st0" d="M28.3 0.1H1.7c-0.9 0-1.6 0.7-1.6 1.6v26.5c0 0.9 0.7 1.6 1.6 1.6H16V18.4h-3.9v-4.5H16v-3.3c0-3.9 2.4-5.9 5.8-5.9 1.6 0 3.1 0.1 3.5 0.2v4l-2.4 0c-1.9 0-2.2 0.9-2.2 2.2v2.9h4.5l-0.6 4.5h-3.9v11.5h7.6c0.9 0 1.6-0.7 1.6-1.6V1.7C29.9 0.8 29.2 0.1 28.3 0.1z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                <path class="st0" d="M28.3 0.1H1.7c-0.9 0-1.6 0.7-1.6 1.6v26.5c0 0.9 0.7 1.6 1.6 1.6H16V18.4h-3.9v-4.5H16v-3.3c0-3.9 2.4-5.9 5.8-5.9 1.6 0 3.1 0.1 3.5 0.2v4l-2.4 0c-1.9 0-2.2 0.9-2.2 2.2v2.9h4.5l-0.6 4.5h-3.9v11.5h7.6c0.9 0 1.6-0.7 1.6-1.6V1.7C29.9 0.8 29.2 0.1 28.3 0.1z"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <!-- youtube -->
-            <a href="#">
-              <svg class="glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                <path class="st0" d="M29.7 9c0 0-0.3-2.1-1.2-3 -1.1-1.2-2.4-1.2-3-1.3C21.3 4.5 15 4.5 15 4.5h0c0 0-6.3 0-10.5 0.3C3.9 4.8 2.6 4.8 1.5 6 0.6 6.9 0.3 9 0.3 9S0 11.4 0 13.9v2.3C0 18.6 0.3 21 0.3 21s0.3 2.1 1.2 3c1.1 1.2 2.6 1.2 3.3 1.3C7.2 25.5 15 25.6 15 25.6s6.3 0 10.5-0.3c0.6-0.1 1.9-0.1 3-1.3 0.9-0.9 1.2-3 1.2-3s0.3-2.4 0.3-4.9v-2.3C30 11.4 29.7 9 29.7 9zM11.9 18.9l0-8.4 8.1 4.2L11.9 18.9z"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                <path class="st0" d="M29.7 9c0 0-0.3-2.1-1.2-3 -1.1-1.2-2.4-1.2-3-1.3C21.3 4.5 15 4.5 15 4.5h0c0 0-6.3 0-10.5 0.3C3.9 4.8 2.6 4.8 1.5 6 0.6 6.9 0.3 9 0.3 9S0 11.4 0 13.9v2.3C0 18.6 0.3 21 0.3 21s0.3 2.1 1.2 3c1.1 1.2 2.6 1.2 3.3 1.3C7.2 25.5 15 25.6 15 25.6s6.3 0 10.5-0.3c0.6-0.1 1.9-0.1 3-1.3 0.9-0.9 1.2-3 1.2-3s0.3-2.4 0.3-4.9v-2.3C30 11.4 29.7 9 29.7 9zM11.9 18.9l0-8.4 8.1 4.2L11.9 18.9z"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <!-- instagram -->
-            <a href="#">
-              <svg class="glow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                <path class="st0" d="M15 2.8c4 0 4.4 0 6 0.1 1.4 0.1 2.2 0.3 2.8 0.5 0.7 0.3 1.2 0.6 1.7 1.1 0.5 0.5 0.8 1 1.1 1.7C26.8 6.8 27 7.6 27.1 9c0.1 1.6 0.1 2 0.1 6s0 4.4-0.1 6c-0.1 1.4-0.3 2.2-0.5 2.8 -0.3 0.7-0.6 1.2-1.1 1.7 -0.5 0.5-1 0.8-1.7 1.1 -0.5 0.2-1.3 0.4-2.8 0.5 -1.6 0.1-2 0.1-6 0.1s-4.4 0-6-0.1c-1.4-0.1-2.2-0.3-2.8-0.5 -0.7-0.3-1.2-0.6-1.7-1.1 -0.5-0.5-0.8-1-1.1-1.7C3.2 23.2 3 22.4 2.9 21c-0.1-1.6-0.1-2-0.1-6s0-4.4 0.1-6C3 7.6 3.2 6.8 3.4 6.2 3.7 5.5 4 5.1 4.5 4.5c0.5-0.5 1-0.8 1.7-1.1C6.8 3.2 7.6 3 9 2.9 10.6 2.8 11 2.8 15 2.8M15 0.2c-4 0-4.5 0-6.1 0.1C7.3 0.3 6.2 0.6 5.3 0.9c-1 0.4-1.8 0.9-2.6 1.7C1.8 3.5 1.3 4.3 0.9 5.3c-0.4 0.9-0.6 2-0.7 3.6C0.2 10.5 0.1 11 0.1 15c0 4 0 4.5 0.1 6.1 0.1 1.6 0.3 2.7 0.7 3.6 0.4 1 0.9 1.8 1.7 2.6 0.8 0.8 1.7 1.3 2.6 1.7 0.9 0.4 2 0.6 3.6 0.7 1.6 0.1 2.1 0.1 6.1 0.1s4.5 0 6.1-0.1c1.6-0.1 2.7-0.3 3.6-0.7 1-0.4 1.8-0.9 2.6-1.7 0.8-0.8 1.3-1.7 1.7-2.6 0.4-0.9 0.6-2 0.7-3.6 0.1-1.6 0.1-2.1 0.1-6.1s0-4.5-0.1-6.1c-0.1-1.6-0.3-2.7-0.7-3.6 -0.4-1-0.9-1.8-1.7-2.6 -0.8-0.8-1.7-1.3-2.6-1.7 -0.9-0.4-2-0.6-3.6-0.7C19.5 0.2 19 0.2 15 0.2L15 0.2z"/>
-                <path class="st0" d="M15 7.4c-4.2 0-7.6 3.4-7.6 7.6s3.4 7.6 7.6 7.6 7.6-3.4 7.6-7.6S19.2 7.4 15 7.4zM15 20c-2.7 0-5-2.2-5-5s2.2-5 5-5c2.7 0 5 2.2 5 5S17.7 20 15 20z"/>
-                <circle class="st0" cx="22.9" cy="7.1" r="1.8"/>
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-                <path class="st0" d="M15 2.8c4 0 4.4 0 6 0.1 1.4 0.1 2.2 0.3 2.8 0.5 0.7 0.3 1.2 0.6 1.7 1.1 0.5 0.5 0.8 1 1.1 1.7C26.8 6.8 27 7.6 27.1 9c0.1 1.6 0.1 2 0.1 6s0 4.4-0.1 6c-0.1 1.4-0.3 2.2-0.5 2.8 -0.3 0.7-0.6 1.2-1.1 1.7 -0.5 0.5-1 0.8-1.7 1.1 -0.5 0.2-1.3 0.4-2.8 0.5 -1.6 0.1-2 0.1-6 0.1s-4.4 0-6-0.1c-1.4-0.1-2.2-0.3-2.8-0.5 -0.7-0.3-1.2-0.6-1.7-1.1 -0.5-0.5-0.8-1-1.1-1.7C3.2 23.2 3 22.4 2.9 21c-0.1-1.6-0.1-2-0.1-6s0-4.4 0.1-6C3 7.6 3.2 6.8 3.4 6.2 3.7 5.5 4 5.1 4.5 4.5c0.5-0.5 1-0.8 1.7-1.1C6.8 3.2 7.6 3 9 2.9 10.6 2.8 11 2.8 15 2.8M15 0.2c-4 0-4.5 0-6.1 0.1C7.3 0.3 6.2 0.6 5.3 0.9c-1 0.4-1.8 0.9-2.6 1.7C1.8 3.5 1.3 4.3 0.9 5.3c-0.4 0.9-0.6 2-0.7 3.6C0.2 10.5 0.1 11 0.1 15c0 4 0 4.5 0.1 6.1 0.1 1.6 0.3 2.7 0.7 3.6 0.4 1 0.9 1.8 1.7 2.6 0.8 0.8 1.7 1.3 2.6 1.7 0.9 0.4 2 0.6 3.6 0.7 1.6 0.1 2.1 0.1 6.1 0.1s4.5 0 6.1-0.1c1.6-0.1 2.7-0.3 3.6-0.7 1-0.4 1.8-0.9 2.6-1.7 0.8-0.8 1.3-1.7 1.7-2.6 0.4-0.9 0.6-2 0.7-3.6 0.1-1.6 0.1-2.1 0.1-6.1s0-4.5-0.1-6.1c-0.1-1.6-0.3-2.7-0.7-3.6 -0.4-1-0.9-1.8-1.7-2.6 -0.8-0.8-1.7-1.3-2.6-1.7 -0.9-0.4-2-0.6-3.6-0.7C19.5 0.2 19 0.2 15 0.2L15 0.2z"/>
-                <path class="st0" d="M15 7.4c-4.2 0-7.6 3.4-7.6 7.6s3.4 7.6 7.6 7.6 7.6-3.4 7.6-7.6S19.2 7.4 15 7.4zM15 20c-2.7 0-5-2.2-5-5s2.2-5 5-5c2.7 0 5 2.2 5 5S17.7 20 15 20z"/>
-                <circle class="st0" cx="22.9" cy="7.1" r="1.8"/>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-  
 </html>

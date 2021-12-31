@@ -1,135 +1,99 @@
-const express = require("express");
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
-const Conexion = require("./config/config.js");
-const productosRouter = require("./routes/productos.js");
-const carritosRouter = require("./routes/carritos.js");
-const authRouter = require("./routes/auth.js");
-const app = express();
-PORT = process.env.PORT | 8080;
-const Cache = require("node-cache");
-const cache = new Cache()
-const { fork } = require('child_process');
-const cluster = require('cluster');
-const http = require("http");
-const numCPUs = require("os").cpus().length;
-const compression = require("compression");
-const {loggerWarn,loggerTrace,loggerDefault,loggerError} = require("./logger/log4js");
-//const requireAuth = require("../middleware/acceso.js");
-app.use(compression())
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
+const express = require("express");
+const http = require("http");
+const Conexion = require("./config/config.js");
+//librerias implementación de cluster
+const cluster = require('cluster');
+const numCPUs = require("os").cpus().length;
+//const express = require('express');
+const app = express();
+const httpServer = http.createServer(app);
+
+
+
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
+//logger
+const { loggerTrace,loggerInfo, loggerWarn, loggerError } = require('./utils/log4js.js');
+
+const productosRouter = require('./routes/productos');
+const carritosRouter = require('./routes/carritos');
+const loginRouter = require('./routes/login');
+
+
+const passport = require('passport');
+
+
+const {checkAuthentication} = require('./middleware/acceso');
+
+
+
+
+ // Middlewares
+ app.use(express.json());
+ app.use(express.urlencoded({ extended: true }));
+ app.use(cookieParser());
+ app.use(session({
+     store: MongoStore.create({
+         mongoUrl: "mongodb://localhost:27017/ecommerce",
+         mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
+     }),
+     secret: 'secreto',
+     cookie: {
+         httpOnly: false,
+         secure: false,
+         maxAge: 600000
+     },
+     rolling: true,
+     resave: true,
+     saveUninitialized: false
+ }));
+ app.use(passport.initialize());
+ app.use(passport.session());
+
+
+ // Rutas
+ app.get('/', (req, res) => {
+     try {
+         res.sendFile('index.html', { root: process.cwd() + '/src/public' });
+     } catch (error) {
+         loggerWarn.warn(error.message)
+     }
+ });
+
+ app.get('/getUser', checkAuthentication, (req, res) => {
+     try {
+         res.json(req.user ?? { status: 'Usuario no logueado.'})
+     } catch (error) {
+         loggerWarn.warn(error.message);
+     }
+ });
+
+app.use('/auth', loginRouter)
 app.use("/productos", productosRouter);
 app.use("/carritos", carritosRouter);
-//app.use("/auth", authRouter);
+ //app.use('/orders', checkAuthentication, routerOrders);
+ //app.use('/auth', routerAuth);
 
-
-
-
-
-app.use(session({
-  secret: 'secreto',
-  resave: true,
-  saveUninitialized: true
-}));
-
-app.use(session({
-   store: MongoStore.create({ mongoUrl: Conexion.mongodb.cnxStr }),
-   secret: 'secreto',
-   resave: false,
-   saveUninitialized: false,
-   cookie: {
-    maxAge: 60000
-}
-}));
-
-
-
-app.get('/random', compression(),(req, res) => {
-  const numeroRandom = fork('./random.js')
-  let cantidad = 0
-  if (req.query.cant) {
-      cantidad = req.query.cant
-  } else {
-      cantidad = 100000000
-  }
-  numeroRandom.send((cantidad).toString());
-  numeroRandom.on("message", obj => {
-      res.end(JSON.stringify(obj, null, 3));
-  });
-})
-
-app.get('/randomsincompression' ,(req, res) => {
-  const numeroRandom = fork('./random.js')
-  let cantidad = 0
-  if (req.query.cant) {
-      cantidad = req.query.cant
-  } else {
-      cantidad = 100000000
-  }
-  numeroRandom.send((cantidad).toString());
-  numeroRandom.on("message", obj => {
-      res.end(JSON.stringify(obj, null, 3));
-  });
-})
-
-
-// info
-app.get('/info', (req, res) => {
-  let informacion = {}
-  informacion['Argumentos de entrada:'] = `${process.argv[2]} ${process.argv[3]} ${process.argv[4]}`;
-  informacion['Nombre de plataforma:'] = process.platform;
-  informacion['Version de Node:'] = process.version;
-  informacion['Uso de memoria:'] = process.memoryUsage();
-  informacion['Path de ejecucion:'] = process.execPath;
-  informacion['Process id:'] = process.pid;
-  informacion['Carpeta corriente:'] = process.cwd();
-  //informacion['Carpeta corriente:'] = os.cpus().length ;
-  console.log(informacion)
-  loggerTrace.trace(informacion);
-  res.send(informacion)
-})
-
-
-
-
-
-app.get('/', (req, res) => {
-  res.redirect('/index.html');
-})
-
-
-app.get('/logout', (req, res) => {
-  const nombre = req.session.nombre
-  if (nombre){
-  req.session.destroy(err=>{
-    if (!err) {
-          
-            res.json({ msg: `Hasta luego ${nombre}!`});
-          
-          } else {
-            res.status(500);
-            res.json({error: err});
-          }
-      }
-  );
-}else {
-  res.json({ msg: `no hay session `});
-}
+ app.use(express.static(process.cwd() + '/src/public'));
+//Error de app
+app.use((err, req, res, next) => {
+console.error(err.message);
+return res.status(500).send("Se rompió todo");
 });
 
-app.post('/login', (req, res) => {
-  const nombre = req.session?.nombre
-  if (nombre) {
-    res.json({ msg: `Te damos la bienvenida!`});
-} else {
-    req.session.nombre = req.body.username;
-    res.json({ msg: `Bienvenido ${req.session.nombre}!`});
-}
-      
-})
+ app.use((req, res, next) => {
+     loggerWarn.warn(`Ruta ${req.originalUrl} método ${req.method} no implementado`)
+     res.status(404).json({ error: -2, descripcion: `ruta ${req.originalUrl} método ${req.method} no implementado` });
+     next();
+ });
+
 
 
 
@@ -179,20 +143,20 @@ if(modo == "cluster"){
 
 } else{
   console.log(`Worker PID ${process.pid}`)
-  const server = app.listen(puerto, () => {
+  const conexserver = httpServer.listen(puerto, () => {
     console.log(process.argv)
-    console.log(`Servidor http escuchando en el puerto ${server.address().port} - PID ${process.pid} - ${ new Date() }`)
+    console.log(`Servidor http escuchando en el puerto ${conexserver.address().port} - PID ${process.pid} - ${ new Date() }`)
   });
-  server.on("error", (error) =>  loggerWarn.warn(`Error en servidor ${error}`) );
+  conexserver.on("error", (error) =>  loggerWarn.warn(`Error en servidor ${error}`) );
   }
 
 }
 else{ // fork
 console.log('modo fork')
-const server = app.listen(puerto, function () {
-  console.log(`Servidor express en ${server.address().port} - PID ${process.pid} - ${ new Date() }`)
+const conexserver = httpServer.listen(puerto, function () {
+  console.log(`Servidor express en ${conexserver.address().port} - PID ${process.pid} - ${ new Date() }`)
 })
-server.on("error", (error) => loggerWarn.warn(`Error en servidor ${error}`));
+conexserver.on("error", (error) => loggerWarn.warn(`Error en servidor ${error}`));
 }
 
 

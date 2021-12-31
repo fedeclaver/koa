@@ -1,11 +1,42 @@
-[2021-12-16T22:28:23.028] [ERROR] myError - Error: Error al insertar Productos campos requeridos
-    at exports.crearProducto (E:\Users\Fede\Documents\DESA\clase15b\backend\controllers\productoController.js:51:23)
-    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\clase15b\backend\node_modules\express\lib\router\layer.js:95:5)
-    at next (E:\Users\Fede\Documents\DESA\clase15b\backend\node_modules\express\lib\router\route.js:137:13)
-    at esAdmin (E:\Users\Fede\Documents\DESA\clase15b\backend\middleware\acceso.js:6:12)
-    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\clase15b\backend\node_modules\express\lib\router\layer.js:95:5)
-    at next (E:\Users\Fede\Documents\DESA\clase15b\backend\node_modules\express\lib\router\route.js:137:13)
-    at Route.dispatch (E:\Users\Fede\Documents\DESA\clase15b\backend\node_modules\express\lib\router\route.js:112:3)
-    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\clase15b\backend\node_modules\express\lib\router\layer.js:95:5)
-    at E:\Users\Fede\Documents\DESA\clase15b\backend\node_modules\express\lib\router\index.js:281:22
-    at Function.process_params (E:\Users\Fede\Documents\DESA\clase15b\backend\node_modules\express\lib\router\index.js:335:12)
+[2021-12-30T21:39:59.139] [ERROR] myError - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
+    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
+    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
+    at Object.onceWrapper (events.js:421:28)
+    at SMTPConnection.emit (events.js:315:20)
+    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
+    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
+    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
+    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2021-12-30T22:08:22.710] [ERROR] myError - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
+    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
+    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
+    at Object.onceWrapper (events.js:421:28)
+    at SMTPConnection.emit (events.js:315:20)
+    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
+    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
+    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
+    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
+  code: 'EAUTH',
+  command: 'API'
+}
+[2021-12-30T22:13:05.659] [ERROR] myError - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
+    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
+    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
+    at Object.onceWrapper (events.js:421:28)
+    at SMTPConnection.emit (events.js:315:20)
+    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
+    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
+    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
+    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
+  code: 'EAUTH',
+  command: 'API'
+}

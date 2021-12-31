@@ -5,14 +5,19 @@ module.exports =  {
     fileSystem: {
         path: './DB'
     },
+    admin:true,
     mongodb: {
       //  cnxStr: 'mongodb+srv://Fede:Uyj3l0To5lyUczFi@cluster0.zyvdl.mongodb.net/ecommerce',
       cnxStr: 'mongodb://localhost:27017/ecommerce',
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 4000,
+           // serverSelectionTimeoutMS: 40000,
         }
+    },
+    gmail:{
+        user: 'fedeclaver@gmail.com',
+        pass: 'yaryisqdczifyink' 
     },
     firebase: {
         "type": "service_account",
@@ -28,6 +33,7 @@ module.exports =  {
     },
     IS_CLUSTER: process.argv[2] === "CLUSTER" ? true : false,
     PORT: parseInt(process.argv[3]) || process.env.PORT || 8080,
+    TIEMPO_EXPIRACION : 200000
 }
   
 

@@ -1,80 +1,117 @@
-[2021-12-16T22:28:23.027] [WARN] myWarn - El usuario no ingresó un campo de Producto requerido .
-[2021-12-16T22:38:36.403] [WARN] myWarn - Error en servidor Error: listen EADDRINUSE: address already in use :::8080
-[2021-12-16T22:51:41.117] [WARN] myWarn - 403
-[2021-12-16T22:52:05.261] [WARN] myWarn - 403
-[2021-12-16T22:52:52.129] [WARN] myWarn - 403
-[2021-12-16T22:53:52.941] [WARN] myWarn - 403
-[2021-12-16T23:04:54.102] [WARN] myWarn - 403
-[2021-12-16T23:04:54.107] [WARN] myWarn - 403
-[2021-12-16T23:05:05.276] [WARN] myWarn - 403
-[2021-12-16T23:05:05.278] [WARN] myWarn - 403
-[2021-12-16T23:05:16.464] [WARN] myWarn - 403
-[2021-12-16T23:05:16.467] [WARN] myWarn - 403
-[2021-12-16T23:05:25.591] [WARN] myWarn - 403
-[2021-12-16T23:05:25.593] [WARN] myWarn - 403
-[2021-12-16T23:05:34.714] [WARN] myWarn - 403
-[2021-12-16T23:05:34.716] [WARN] myWarn - 403
-[2021-12-16T23:05:43.836] [WARN] myWarn - 403
-[2021-12-16T23:05:43.838] [WARN] myWarn - 403
-[2021-12-16T23:05:50.388] [WARN] myWarn - 403
-[2021-12-16T23:05:50.390] [WARN] myWarn - 403
-[2021-12-16T23:05:52.958] [WARN] myWarn - 403
-[2021-12-16T23:05:52.960] [WARN] myWarn - 403
-[2021-12-16T23:06:02.076] [WARN] myWarn - 403
-[2021-12-16T23:06:02.079] [WARN] myWarn - 403
-[2021-12-16T23:06:11.197] [WARN] myWarn - 403
-[2021-12-16T23:06:11.199] [WARN] myWarn - 403
-[2021-12-16T23:06:20.317] [WARN] myWarn - 403
-[2021-12-16T23:06:20.319] [WARN] myWarn - 403
-[2021-12-16T23:06:29.444] [WARN] myWarn - 403
-[2021-12-16T23:06:29.446] [WARN] myWarn - 403
-[2021-12-16T23:06:35.506] [WARN] myWarn - 403
-[2021-12-16T23:06:35.508] [WARN] myWarn - 403
-[2021-12-16T23:06:38.561] [WARN] myWarn - 403
-[2021-12-16T23:06:38.563] [WARN] myWarn - 403
-[2021-12-16T23:06:47.674] [WARN] myWarn - 403
-[2021-12-16T23:06:47.676] [WARN] myWarn - 403
-[2021-12-16T23:06:56.792] [WARN] myWarn - 403
-[2021-12-16T23:06:56.794] [WARN] myWarn - 403
-[2021-12-16T23:07:05.916] [WARN] myWarn - 403
-[2021-12-16T23:07:05.918] [WARN] myWarn - 403
-[2021-12-16T23:07:15.041] [WARN] myWarn - 403
-[2021-12-16T23:07:15.043] [WARN] myWarn - 403
-[2021-12-16T23:07:20.653] [WARN] myWarn - 403
-[2021-12-16T23:07:20.655] [WARN] myWarn - 403
-[2021-12-16T23:10:16.061] [WARN] myWarn - 403 function status(code) {
-  this.statusCode = code;
-  return this;
-}
-[2021-12-16T23:10:17.565] [WARN] myWarn - 403 function status(code) {
-  this.statusCode = code;
-  return this;
-}
-[2021-12-16T23:10:17.569] [WARN] myWarn - 403 function status(code) {
-  this.statusCode = code;
-  return this;
-}
-[2021-12-16T23:10:21.122] [WARN] myWarn - 403 function status(code) {
-  this.statusCode = code;
-  return this;
-}
-[2021-12-16T23:10:21.128] [WARN] myWarn - 403 function status(code) {
-  this.statusCode = code;
-  return this;
-}
-[2021-12-16T23:10:26.692] [WARN] myWarn - 403 function status(code) {
-  this.statusCode = code;
-  return this;
-}
-[2021-12-16T23:10:26.698] [WARN] myWarn - 403 function status(code) {
-  this.statusCode = code;
-  return this;
-}
-[2021-12-16T23:10:35.817] [WARN] myWarn - 403 function status(code) {
-  this.statusCode = code;
-  return this;
-}
-[2021-12-16T23:10:35.823] [WARN] myWarn - 403 function status(code) {
-  this.statusCode = code;
-  return this;
-}
+[2021-12-30T20:40:29.065] [WARN] myWarn - TypeError: req.isAuthenticated is not a function
+    at checkAuthentication (E:\Users\Fede\Documents\DESA\backend\middleware\acceso.js:7:17)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:335:12)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:275:10)
+    at Function.handle (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:174:3)
+    at router (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:47:12)
+[2021-12-30T20:56:35.958] [WARN] myWarn - Ruta /styles.css método GET no implementada
+[2021-12-30T20:56:36.032] [WARN] myWarn - Ruta /favicon.ico método GET no implementada
+[2021-12-30T20:56:36.033] [WARN] myWarn - Ruta /carrito/listar método GET no implementada
+[2021-12-30T20:56:48.461] [WARN] myWarn - Ruta /productos/buscar?nombre=sdasdas&codigo=&precioMin=&precioMax=&stockMin=&stockMax= método GET no implementada
+[2021-12-30T20:56:51.482] [WARN] myWarn - Ruta /styles.css método GET no implementada
+[2021-12-30T20:56:51.508] [WARN] myWarn - Ruta /carrito/listar método GET no implementada
+[2021-12-30T20:58:33.135] [WARN] myWarn - Ruta /login.html método GET no implementada
+[2021-12-30T21:02:51.755] [WARN] myWarn - Ruta /login.html método GET no implementada
+[2021-12-30T21:02:53.850] [WARN] myWarn - Ruta /carrito/listar método GET no implementada
+[2021-12-30T21:02:54.799] [WARN] myWarn - Ruta /styles.css método GET no implementada
+[2021-12-30T21:02:54.820] [WARN] myWarn - Ruta /carrito/listar método GET no implementada
+[2021-12-30T21:02:55.860] [WARN] myWarn - Ruta /login.html método GET no implementada
+[2021-12-30T21:03:51.207] [WARN] myWarn - Ruta /styles.css método GET no implementada
+[2021-12-30T21:03:51.235] [WARN] myWarn - Ruta /carrito/listar método GET no implementada
+[2021-12-30T21:03:52.403] [WARN] myWarn - Ruta /login.html método GET no implementada
+[2021-12-30T21:04:02.582] [WARN] myWarn - Ruta /login.html método GET no implementada
+[2021-12-30T21:05:02.983] [WARN] myWarn - Ruta /login.html método GET no implementada
+[2021-12-30T21:06:19.279] [WARN] myWarn - Ruta /login.html método GET no implementada
+[2021-12-30T21:08:30.668] [WARN] myWarn - Ruta /login.html método GET no implementada
+[2021-12-30T21:19:45.099] [WARN] myWarn - Ruta /login método GET no implementada
+[2021-12-30T21:20:51.849] [WARN] myWarn - Ruta /auth/login método GET no implementada
+[2021-12-30T21:21:17.696] [WARN] myWarn - Ruta /auth/login método POST no implementada
+[2021-12-30T21:22:24.644] [WARN] myWarn - Ruta /login método GET no implementado
+[2021-12-30T21:23:42.258] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T21:23:42.285] [WARN] myWarn - Ruta /carrito/listar método GET no implementado
+[2021-12-30T21:23:43.705] [WARN] myWarn - Ruta /login.html método GET no implementado
+[2021-12-30T21:26:19.110] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T21:26:19.137] [WARN] myWarn - Ruta /carrito/listar método GET no implementado
+[2021-12-30T21:26:27.534] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T21:26:45.852] [WARN] myWarn - Ruta /login.html método GET no implementado
+[2021-12-30T21:28:26.394] [WARN] myWarn - Ruta /js/producto.js método GET no implementado
+[2021-12-30T21:28:26.860] [WARN] myWarn - Ruta /js/producto.js método GET no implementado
+[2021-12-30T21:28:42.716] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2021-12-30T21:28:51.847] [WARN] myWarn - Ruta /signin.html método GET no implementado
+[2021-12-30T21:29:16.183] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T21:31:45.262] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T21:31:45.289] [WARN] myWarn - Ruta /carrito/listar método GET no implementado
+[2021-12-30T21:31:46.646] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T21:31:52.889] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T21:31:54.809] [WARN] myWarn - Unhandled Rejection at: TypeError: usuariosDao.list is not a function
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:335:12)
+[2021-12-30T21:34:46.358] [WARN] myWarn - Unhandled Rejection at: TypeError: usuariosDao.list is not a function
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:335:12)
+[2021-12-30T21:35:20.861] [WARN] myWarn - Usuario no existe!
+[2021-12-30T21:35:26.840] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2021-12-30T21:39:58.217] [WARN] myWarn - Unhandled Rejection at: ReferenceError: newItem is not defined
+    at UsuariosDaoMongo.save (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:36:52)
+    at findOrCreateUser (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:68:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-12-30T21:39:58.254] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T21:39:58.287] [WARN] myWarn - Ruta /assets/1640911198068_20210414_192511%20(3).jpg método GET no implementado
+[2021-12-30T21:39:58.289] [WARN] myWarn - Ruta /carrito/listar método GET no implementado
+[2021-12-30T21:40:26.674] [WARN] myWarn - Ruta /carrito/agregar/6 método POST no implementado
+[2021-12-30T21:40:30.889] [WARN] myWarn - Ruta /carrito/agregar/7 método POST no implementado
+[2021-12-30T21:40:33.849] [WARN] myWarn - Ruta /carrito/agregar/4 método POST no implementado
+[2021-12-30T22:06:38.810] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T22:06:38.844] [WARN] myWarn - Ruta /carrito/listar método GET no implementado
+[2021-12-30T22:06:41.525] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T22:06:42.559] [WARN] myWarn - Usuario no existe!
+[2021-12-30T22:06:51.690] [WARN] myWarn - Ruta /carrito/listar método GET no implementado
+[2021-12-30T22:06:52.158] [WARN] myWarn - Ruta /carrito/listar método GET no implementado
+[2021-12-30T22:08:21.946] [WARN] myWarn - Unhandled Rejection at: ReferenceError: newItem is not defined
+    at UsuariosDaoMongo.save (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:36:52)
+    at findOrCreateUser (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:68:25)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-12-30T22:08:21.970] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T22:08:22.003] [WARN] myWarn - Ruta /assets/1640912901880_20210414_192511%20(3).jpg método GET no implementado
+[2021-12-30T22:08:22.008] [WARN] myWarn - Ruta /carrito/listar método GET no implementado
+[2021-12-30T22:09:35.108] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T22:09:35.135] [WARN] myWarn - Ruta /carrito/listar método GET no implementado
+[2021-12-30T22:09:35.969] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T22:09:37.366] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2021-12-30T22:09:48.760] [WARN] myWarn - Unhandled Rejection at: TypeError: Cannot read property 'length' of null
+    at findOrCreateUser (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:49:22)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-12-30T22:11:48.097] [WARN] myWarn - Unhandled Rejection at: TypeError: Cannot read property 'length' of null
+    at findOrCreateUser (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:49:22)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-12-30T22:12:02.157] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2021-12-30T22:12:58.394] [WARN] myWarn - Unhandled Rejection at: ReferenceError: newItem is not defined
+    at UsuariosDaoMongo.save (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:36:52)
+    at findOrCreateUser (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:68:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2021-12-30T22:13:05.028] [WARN] myWarn - Ruta /estilos.css método GET no implementado
+[2021-12-30T22:13:05.059] [WARN] myWarn - Ruta /assets/1640913132990_Captura.PNG método GET no implementado
+[2021-12-30T22:13:05.072] [WARN] myWarn - Ruta /carrito/listar método GET no implementado

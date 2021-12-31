@@ -1,7 +1,7 @@
 
 
 const productosDao = require("../daos/productos/index.js");
-const {loggerWarn,loggerTrace,loggerDefault,loggerError} = require("../logger/log4js");
+const {loggerWarn,loggerTrace,loggerDefault,loggerError} = require("../utils/log4js");
 
 
 
