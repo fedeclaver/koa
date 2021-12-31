@@ -5,7 +5,7 @@
     if (Object.keys(data)[0] != 'error') {
         document.getElementById('user').innerHTML = `
                 <span style="font-size: 14px; color: white;">${data.nombre} - </span>
-                <span style="font-size: 12px; color: white;">${data.email} - </span>
+                <span style="font-size: 12px; color: white;">${data.username} - </span>
                 <span style="font-size: 12px; color: white;">${data.telefono}</span>
                 <img src="${location.href}assets/${data.foto}" width="45px" />
             `

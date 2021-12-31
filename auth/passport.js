@@ -12,10 +12,10 @@ passport.use('login', new LocalStrategy({
 },
     async (req, username, password, done) => {
         // chequeamos si el usuario existe en mongo
-        const user = await usuariosDao.getById({ email: username });
+        const user = await usuariosDao.getById({ username: username });
 
         // si no existe
-        if (!user.length) {
+        if (!user.username) {
             return done(null, false, loggerWarn.warn('Usuario no existe!'));
         }
 
@@ -56,7 +56,7 @@ passport.use('signup', new LocalStrategy({
 
             // creamos el susuario
             const newUser = {
-                email: username,
+                username: username,
                 password: createHash(password),
                 nombre: req.body.nombre,
                 direccion: req.body.direccion,
