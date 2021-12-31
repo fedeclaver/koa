@@ -1,26 +1,26 @@
 const express = require("express");
 const { Router } = express;
 const router = new Router();
-const requireAuth = require("../middleware/acceso.js");
 const productoController = require("../controllers/productoController");
-
+const {checkAuthentication} = require('../middleware/acceso');
+const {esAdmin} = require('../middleware/acceso');
 //api/productos
-router.post("/agregar", requireAuth.esAdmin,productoController.crearProducto);
+router.post("/agregar", checkAuthentication,esAdmin,productoController.crearProducto);
 
-router.get("/listar", requireAuth.esAdmin, productoController.obtenerProductos);
+router.get("/listar", checkAuthentication, productoController.obtenerProductos);
 router.put(
   "/actualizar/:id",
-  requireAuth.esAdmin,
+  checkAuthentication,esAdmin,
   productoController.actualizarProductos
 );
 router.get(
   "/listar/:id",
-  requireAuth.esAdmin,
+  checkAuthentication,esAdmin,
   productoController.obtenerProducto
 );
 router.delete(
   "/borrar/:id",
-  requireAuth.esAdmin,
+  checkAuthentication,esAdmin,
   productoController.eliminarProducto
 );
 module.exports = router;

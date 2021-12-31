@@ -1,36 +1,24 @@
 const express = require("express");
 const { Router } = express;
 const router = new Router();
-const requireAuth = require("../middleware/acceso.js");
+//const requireAuth = require("../middleware/acceso.js");
 const carritoController = require("../controllers/carritoController");
+const {checkAuthentication} = require('../middleware/acceso');
+const {esAdmin} = require('../middleware/acceso');
+
+
+router.post("/agregar", esAdmin,checkAuthentication, carritoController.crearCarrito);
+
+router.get("/listar", esAdmin,checkAuthentication, carritoController.obtenerCarritos);
+
+router.get("/listar/:id", esAdmin,checkAuthentication, carritoController.obtenerCarrito);
+
+router.get("/agregarProducto/:idCarrito/:id_prod",   checkAuthentication, esAdmin,  carritoController.agregarProducto);
+
+router.get("/eliminarProducto/:idCarrito/:id_prod",checkAuthentication, esAdmin,checkAuthentication, carritoController.eliminarProducto);
+
+router.delete("/borrar/:id",esAdmin,checkAuthentication, carritoController.eliminarCarrito);
 
 
 
-router.post("/agregar", requireAuth.esAdmin, carritoController.crearCarrito);
-
-router.get("/listar", requireAuth.esAdmin, carritoController.obtenerCarritos);
-
-router.get(
-  "/listar/:id",
-  requireAuth.esAdmin,
-  carritoController.obtenerCarrito
-);
-
-router.get(
-  "/agregarProducto/:idCarrito/:id_prod",
-  requireAuth.esAdmin,
-  carritoController.agregarProducto
-);
-
-router.get(
-  "/eliminarProducto/:idCarrito/:id_prod",
-  requireAuth.esAdmin,
-  carritoController.eliminarProducto
-);
-
-router.delete(
-  "/borrar/:id",
-  requireAuth.esAdmin,
-  carritoController.eliminarCarrito
-);
 module.exports = router;

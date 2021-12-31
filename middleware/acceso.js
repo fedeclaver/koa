@@ -1,38 +1,36 @@
+const { loggerWarn } = require("../utils/log4js");
+const { admin } = require('../config/config');
+
+// middleware de authentication
+const checkAuthentication = (req, res, next) => {
+    try {
+        if (req.isAuthenticated()) {
+            next();
+        } else {
+            res.json({ error: `No está autenticado.` })
+
+        }
+    } catch (error) {
+        loggerWarn.warn(error);
+    }
+}
 
 
-  const admin = true;
+
+
+
 const esAdmin = (req, res, next) => {
-  if (admin) {
-    return next();
-  }
-  return res.status(401).json({
-    msg: "Acceso Denegado",
-    descripcion: `error: -1 ,descripcion: ruta ${req.url} método ${req.method} no autorizada`,
-  });
-};
-
-const verifyUsername = (req, res, next) => {
-  if (!req.body.username) {
-    return res.status(400).json({
-      error: 'El campo username es obligatorio'
-    })
-  }
-
-  return next()
-}
-
-const verifyPassword = (req, res, next) => {
-  if (!req.body.password) {
-    return res.status(400).json({
-      error: 'El campo password es obligatorio'
-    })
-  }
-
-  return next()
+    try {
+        if (admin) {
+            next();
+        } else {
+            loggerWarn.warn(`Ruta ${req.originalUrl} método ${req.method} no autorizada`);
+            res.json({ error : -1, descripcion: `ruta ${req.originalUrl} método ${req.method} no autorizada` })
+        }
+    } catch (error) {
+        loggerWarn.warn(error);
+    }
 }
 
 
-module.exports = {
-  verifyUsername,
-  verifyPassword,esAdmin
-}
+module.exports =  {esAdmin,checkAuthentication};
