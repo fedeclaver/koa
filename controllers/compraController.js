@@ -14,6 +14,7 @@ const parse_obj = obj => JSON.parse(JSON.stringify(obj))
 var http = require("http");
 
 exports.crearCompra = async (req, res) => {
+  console.log('compra');
   loggerTrace.trace("Ingreso a crearcompra");
   try {
     let carrito = await carritosDao.getById(req.params.idc);
@@ -25,8 +26,8 @@ exports.crearCompra = async (req, res) => {
     if (idcompra) {
               // envio de email al admin
               transporterGmail.sendMail({
-                from: config.GMAIL_USER,
-                to: config.ADMIN_EMAIL,
+                from: config.gmail.user,
+                to: config.gmail.admin,
                 subject: `Nuevo Pedido de ${req.user.nombre} - ${req.user.email}`,
                 html: `<div><h4>Productos:</h4>${template}</div>`
             }, (err, info) => {

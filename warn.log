@@ -18,3 +18,35 @@
 [2022-01-03T12:04:16.984] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
 [2022-01-03T12:06:33.697] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
 [2022-01-03T12:08:25.024] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-03T12:27:21.065] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-03T12:27:50.215] [WARN] myWarn - Usuario ya existe
+[2022-01-03T12:27:58.317] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-03T12:28:23.331] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-03T12:30:47.645] [WARN] myWarn - Usuario ya existe
+[2022-01-03T12:31:38.949] [WARN] myWarn - Usuario ya existe
+[2022-01-03T12:32:54.172] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-03T12:36:09.120] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-03T12:47:29.286] [WARN] myWarn - Unhandled Rejection at: TypeError: Cannot read property 'usuario' of null
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:18:19)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-03T13:25:35.690] [WARN] myWarn - Unhandled Rejection at: TypeError: Cannot read property 'usuario' of null
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:18:19)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-03T13:25:44.104] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-03T13:27:07.588] [WARN] myWarn - Unhandled Rejection at: ReferenceError: newItem is not defined
+    at UsuariosDaoMongo.save (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:36:52)
+    at findOrCreateUser (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:72:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-03T13:34:21.655] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-03T13:37:11.563] [WARN] myWarn - Unhandled Rejection at: ReferenceError: newItem is not defined
+    at UsuariosDaoMongo.save (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:36:52)
+    at findOrCreateUser (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:72:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-03T13:38:17.625] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-03T13:40:54.335] [WARN] myWarn - Unhandled Rejection at: ReferenceError: newItem is not defined
+    at UsuariosDaoMongo.save (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:36:52)
+    at findOrCreateUser (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:72:45)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-03T13:41:27.431] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-03T14:33:40.545] [WARN] myWarn - Ruta /logout.html método GET no implementado
+[2022-01-03T14:37:24.756] [WARN] myWarn - Ruta /styles.css método GET no implementado

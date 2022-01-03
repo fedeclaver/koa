@@ -33,7 +33,7 @@ class ContenedorMongo {
 
     async save(objeto) {
 
-        let producto = await this.coleccion.create(newItem);
+        let producto = await this.coleccion.create(objeto);
         parse_obj(producto);
         return producto
     } catch(error) {

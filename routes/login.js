@@ -3,10 +3,12 @@ const router = Router();
 const passport = require('../auth/passport');
 const upload = require('../middleware/multer');
 
+
 //-----------LOGIN----------------
 router.post('/login', passport.authenticate('login',
     {
         successRedirect: '/'
+        
     }
 ));
 

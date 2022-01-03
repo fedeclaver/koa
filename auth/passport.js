@@ -4,7 +4,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const usuariosDao = require("../daos/usuarios/index.js");
 const config = require('../config/config');
 const transporterGmail = require('../email/gmail');
-const { loggerTrace,loggerInfo, loggerWarn, loggerError } = require('../utils/log4js');
+const { loggerTrace, loggerInfo, loggerWarn, loggerError } = require('../utils/log4js');
 
 // LocalStrategy de "login"
 passport.use('login', new LocalStrategy({
@@ -16,16 +16,18 @@ passport.use('login', new LocalStrategy({
 
         // si no existe
         if (!user.usuario) {
-            return done(null, false, loggerWarn.warn('Usuario no existe!'));
+            loggerWarn.warn('Usuario no existe!')
+            return done(null, false, { msg: 'Usuario no existe!' });
         }
 
         // usuario existe pero esta mal la contraseña
         if (!isValidPassword(user.password, password)) {
-            return done(null, false, loggerWarn.warn('Password incorrecto!'));
+            loggerWarn.warn('Password incorrecto!')
+            return done(null, false, { msg: 'Password incorrecto!' });
         }
 
         // Si todo OK
-        return done(null,user);
+        return done(null, user);
 
     }
 ))
@@ -33,7 +35,7 @@ passport.use('login', new LocalStrategy({
 // validar password
 const isValidPassword = (userPassword, password) => {
     return bcrypt.compareSync(password, userPassword)
-  }
+}
 
 
 passport.use('signup', new LocalStrategy({
@@ -47,11 +49,13 @@ passport.use('signup', new LocalStrategy({
 
             // usuario ya existe
             if (user) {
-                return done(null, false, loggerWarn.warn('Usuario ya existe'));
+                loggerWarn.warn('Usuario ya existe!')
+                return done(null, false, { msg: 'Usuario ya existe!' });
             }
 
             if (!req.file) {
-                return done(null, false, loggerWarn.warn('Faltó subir una foto de perfil'));
+                loggerWarn.warn('Faltó subir una foto de perfil')
+                return done(null, false, { msg: 'Faltó subir una foto de perfil' });
             }
 
             // creamos el usuario
@@ -65,28 +69,28 @@ passport.use('signup', new LocalStrategy({
                 foto: req.file.filename
             }
 
-            usuariosDao.save(newUser);
-
-            //aviso log con Gmail
-            transporterGmail.sendMail({
-                from: config.GMAIL_USER,
-                to: config.ADMIN_EMAIL,
-                subject: 'Nuevo Registro de Usuario',
-                html: `
+            const creausuario =await  usuariosDao.save(newUser);
+            if (creausuario) {
+                //aviso log con Gmail
+                transporterGmail.sendMail({
+                    from: config.GMAIL_USER,
+                    to: config.ADMIN_EMAIL,
+                    subject: 'Nuevo Registro de Usuario',
+                    html: `
                         <p>Email: ${newUser.username}</p>
                         <p>Nombre: ${newUser.nombre}</p>
                         <p>Dirección: ${newUser.direccion}</p>
                         <p>Edad: ${newUser.edad}</p>
                         <p>Teléfono: ${newUser.telefono}</p>
                     `
-            }, (err, info) => {
-                if (err) {
-                    loggerError.error(err)
-                    return err
-                }
-                loggerInfo.info(info);
-            });
-
+                }, (err, info) => {
+                    if (err) {
+                        loggerError.error(err)
+                        return err
+                    }
+                    loggerInfo.info(info);
+                });
+            }
             return done(null, newUser);
 
         }
