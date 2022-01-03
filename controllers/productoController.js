@@ -5,7 +5,7 @@ const {loggerWarn,loggerTrace,loggerDefault,loggerError} = require("../utils/log
 
 
 
-exports.crearProducto = async (req, res) => {
+const crearProducto = async (req, res) => {
     loggerTrace.trace("Ingreso a crearProducto");
     try {
 
@@ -58,7 +58,7 @@ exports.crearProducto = async (req, res) => {
     }
 }
 
-exports.obtenerProductos = async (req, res) => {
+const obtenerProductos = async (req, res) => {
     loggerTrace.trace("Ingreso a obtenerProductos");
     try {
 
@@ -72,7 +72,7 @@ exports.obtenerProductos = async (req, res) => {
 
 }
 
-exports.actualizarProductos = async (req, res) => {
+const actualizarProductos = async (req, res) => {
     loggerTrace.trace("Ingreso a actualizarProductos");
     try {
         const { nombre, descripcion, codigo, foto, precio, stock } = req.body;
@@ -98,7 +98,7 @@ exports.actualizarProductos = async (req, res) => {
 }
 
 
-exports.obtenerProducto = async (req, res) => {
+const obtenerProducto = async (req, res) => {
     loggerTrace.trace("Ingreso a obtenerProducto");
     try {
         let producto = await productosDao.getById(req.params.id);
@@ -115,7 +115,7 @@ exports.obtenerProducto = async (req, res) => {
     }
 }
 
-exports.eliminarProducto = async (req, res) => {
+const eliminarProducto = async (req, res) => {
     loggerTrace.trace("Ingreso a eliminarProducto");
     try {
         let producto = await productosDao.getById(req.params.id);
@@ -132,3 +132,5 @@ exports.eliminarProducto = async (req, res) => {
         res.status(500).send('Hubo un error');
     }
 }
+
+module.exports = {eliminarProducto,obtenerProducto,actualizarProductos,obtenerProductos,crearProducto};
