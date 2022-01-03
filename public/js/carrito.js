@@ -3,19 +3,19 @@
   const data = await response.json();
   if (Object.keys(data)[0] != 'error') {
       document.getElementById('user').innerHTML = `
-              <span style="font-size: 14px; color: white;">${data.nombre} - </span>
-              <span style="font-size: 12px; color: white;">${data.usuario} - </span>
-              <img src="${location.href}img/${data.foto}" width="45px" />
+              <span>${data.nombre} - </span>
+              <span>${data.usuario} - </span>
+              <img src="  img/${data.foto}" width="45px" />
           `
       document.getElementById('btnLogout').innerHTML = `
-              <a class="btn btn-sm btn-secondary" href="/auth/logout">Logout</a>
+              <a  href="/auth/logout">Logout</a>
           `
   } else {
       document.getElementById('user').innerHTML = `
-          <form class="form-inline">
-              <a class="btn btn-outline-light" href="signup.html">Signup</a>
-              <a class="btn btn-outline-light" href="login.html">Login</a>
-          </form>
+          
+              <a  href="signup.html">Signup</a>
+              <a  href="login.html">Login</a>
+       
           `
   }
 })();

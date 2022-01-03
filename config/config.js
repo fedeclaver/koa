@@ -33,7 +33,12 @@ module.exports =  {
     },
     IS_CLUSTER: process.argv[2] === "CLUSTER" ? true : false,
     PORT: parseInt(process.argv[3]) || process.env.PORT || 8080,
-    TIEMPO_EXPIRACION : 200000
+    TIEMPO_EXPIRACION : 200000,
+     // credenciales Twillio
+     TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
+     TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
+     TWILIO_NUM_SMS: process.env.TWILIO_NUM_SMS,
+     TWILIO_NUM_WHATSAPP: process.env.TWILIO_NUM_WHATSAPP,
 }
   
 

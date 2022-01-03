@@ -25,6 +25,7 @@ const { loggerTrace,loggerInfo, loggerWarn, loggerError } = require('./utils/log
 const productosRouter = require('./routes/productos');
 const carritosRouter = require('./routes/carritos');
 const loginRouter = require('./routes/login');
+const compraRouter = require('./routes/compra');
 
 
 const passport = require('passport');
@@ -78,6 +79,7 @@ app.use(express.static(__dirname + '/public')); // espacio público del servidor
 app.use('/auth', loginRouter)
 app.use("/productos", productosRouter);
 app.use("/carritos", carritosRouter);
+app.use("/compra", compraRouter);
  //app.use('/orders', checkAuthentication, routerOrders);
  //app.use('/auth', routerAuth);
 

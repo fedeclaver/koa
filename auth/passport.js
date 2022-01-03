@@ -3,8 +3,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const usuariosDao = require("../daos/usuarios/index.js");
 const config = require('../config/config');
-const transporterGm = require('../email/gmail');
-const { loggerInfo, loggerWarn, loggerError } = require('../utils/log4js');
+const transporterGmail = require('../email/gmail');
+const { loggerTrace,loggerInfo, loggerWarn, loggerError } = require('../utils/log4js');
 
 // LocalStrategy de "login"
 passport.use('login', new LocalStrategy({
@@ -68,7 +68,7 @@ passport.use('signup', new LocalStrategy({
             usuariosDao.save(newUser);
 
             //aviso log con Gmail
-            transporterGm.sendMail({
+            transporterGmail.sendMail({
                 from: config.GMAIL_USER,
                 to: config.ADMIN_EMAIL,
                 subject: 'Nuevo Registro de Usuario',

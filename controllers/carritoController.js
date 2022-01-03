@@ -1,11 +1,13 @@
 const carritosDao = require("../daos/carritos/index.js");
 
 const productosDao = require("../daos/productos/index.js");
+const {loggerWarn,loggerTrace,loggerDefault,loggerError} = require("../utils/log4js");
 
 const parse_obj = obj => JSON.parse(JSON.stringify(obj))
 var http = require("http");
 
 exports.crearCarrito = async (req, res) => {
+  loggerTrace.trace("Ingreso a crearCarrito");
   try {
        objeto = Object.assign({ timestamp: Date.now() ,  productos: [''] });
        
@@ -25,6 +27,7 @@ exports.crearCarrito = async (req, res) => {
 };
 
 exports.agregarProducto = async (req, res) => {
+  loggerTrace.trace("Ingreso a agregarProducto");
   try {
     let carrito = await carritosDao.getById(req.params.idCarrito);
     if (!carrito) {
@@ -39,7 +42,7 @@ exports.agregarProducto = async (req, res) => {
     if (carritoact) {
       res
         .status(200)
-        .redirect("/index.html")
+       // .redirect("/index.html")
         .json({ msg: `El Producto se agregó correctamente` });
         
     } else {
@@ -52,6 +55,7 @@ exports.agregarProducto = async (req, res) => {
 };
 
 exports.obtenerCarritos = async (req, res) => {
+  loggerTrace.trace("Ingreso a obtenerCarritos");
   try {
     let carritos = await carritosDao.getAll();    
     res.json(carritos)
@@ -62,6 +66,7 @@ exports.obtenerCarritos = async (req, res) => {
 };
 
 exports.obtenerCarrito = async (req, res) => {
+  loggerTrace.trace("Ingreso a obtenerCarrito");
   try {
     let carrito = await carritosDao.getById(req.params.id);
     if (!carrito) {
@@ -75,6 +80,7 @@ exports.obtenerCarrito = async (req, res) => {
 };
 
 exports.eliminarCarrito = async (req, res) => {
+  loggerTrace.trace("Ingreso a eliminarCarrito");
   try {
     let carrito = await Producto.deleteById(req.params.id);
     if (!carrito) {
@@ -89,6 +95,7 @@ exports.eliminarCarrito = async (req, res) => {
 };
 
 exports.eliminarProducto = async (req, res) => {
+  loggerTrace.trace("Ingreso a eliminarProducto de Carrito");
   try {
     let carrito = await carritosDao.getById(req.params.idCarrito);
     if (!carrito) {
