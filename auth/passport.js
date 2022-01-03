@@ -15,7 +15,7 @@ passport.use('login', new LocalStrategy({
         const user = await usuariosDao.getById({ 'usuario': username });
 
         // si no existe
-        if (!user.usuario) {
+        if (!user) {
             loggerWarn.warn('Usuario no existe!')
             return done(null, false, { msg: 'Usuario no existe!' });
         }

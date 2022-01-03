@@ -6,7 +6,7 @@ const {loggerWarn,loggerTrace,loggerDefault,loggerError} = require("../utils/log
 const parse_obj = obj => JSON.parse(JSON.stringify(obj))
 var http = require("http");
 
-exports.crearCarrito = async (req, res) => {
+const crearCarrito = async (req, res) => {
   loggerTrace.trace("Ingreso a crearCarrito");
   try {
        objeto = Object.assign({ timestamp: Date.now() ,  productos: [''] });
@@ -26,7 +26,7 @@ exports.crearCarrito = async (req, res) => {
   }
 };
 
-exports.agregarProducto = async (req, res) => {
+const agregarProducto = async (req, res) => {
   loggerTrace.trace("Ingreso a agregarProducto");
   try {
     let carrito = await carritosDao.getById(req.params.idCarrito);
@@ -54,7 +54,7 @@ exports.agregarProducto = async (req, res) => {
   }
 };
 
-exports.obtenerCarritos = async (req, res) => {
+ const obtenerCarritos = async (req, res) => {
   loggerTrace.trace("Ingreso a obtenerCarritos");
   try {
     let carritos = await carritosDao.getAll();    
@@ -64,8 +64,7 @@ exports.obtenerCarritos = async (req, res) => {
     res.status(500).json("Error obtenerCarritos");
   }
 };
-
-exports.obtenerCarrito = async (req, res) => {
+const  obtenerCarrito = async (req, res) => {
   loggerTrace.trace("Ingreso a obtenerCarrito");
   try {
     let carrito = await carritosDao.getById(req.params.id);
@@ -79,7 +78,7 @@ exports.obtenerCarrito = async (req, res) => {
   }
 };
 
-exports.eliminarCarrito = async (req, res) => {
+const  eliminarCarrito = async (req, res) => {
   loggerTrace.trace("Ingreso a eliminarCarrito");
   try {
     let carrito = await Producto.deleteById(req.params.id);
@@ -94,7 +93,7 @@ exports.eliminarCarrito = async (req, res) => {
   }
 };
 
-exports.eliminarProducto = async (req, res) => {
+const eliminarProducto = async (req, res) => {
   loggerTrace.trace("Ingreso a eliminarProducto de Carrito");
   try {
     let carrito = await carritosDao.getById(req.params.idCarrito);
@@ -120,3 +119,5 @@ exports.eliminarProducto = async (req, res) => {
     res.status(500).send("Error  al agregar Productos");
   }
 };
+
+module.exports = eliminarProducto,eliminarCarrito,obtenerCarrito,obtenerCarritos,agregarProducto,crearCarrito;

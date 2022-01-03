@@ -44,3 +44,17 @@
     at Timeout._onTimeout (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:189:31)
     at listOnTimeout (internal/timers.js:554:17)
     at processTimers (internal/timers.js:497:7)
+[2022-01-03T15:24:42.527] [ERROR] myError - Error: Missing credentials for "PLAIN"
+    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
+    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
+    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
+    at Object.onceWrapper (events.js:421:28)
+    at SMTPConnection.emit (events.js:315:20)
+    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
+    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
+    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
+    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
+  code: 'EAUTH',
+  command: 'API'
+}

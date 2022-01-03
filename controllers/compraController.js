@@ -24,38 +24,7 @@ exports.crearCompra = async (req, res) => {
        
     const idcompra = await comprasDao.guardar(carrito);
     if (idcompra) {
-              // envio de email al admin
-              transporterGmail.sendMail({
-                from: config.gmail.user,
-                to: config.gmail.admin,
-                subject: `Nuevo Pedido de ${req.user.nombre} - ${req.user.email}`,
-                html: `<div><h4>Productos:</h4>${template}</div>`
-            }, (err, info) => {
-                if (err) {
-                    loggerWarn.warn(err.message)
-                    return err
-                }
-                loggerInfo.info(info);
-            });
-
-            //envio whassap
-            client.messages.create({
-              body: `Nuevo Pedido de ${req.user.username} - ${req.user.email}`,
-              from: `whatsapp:${config.TWILIO_NUM_WHATSAPP}`,
-              to: `whatsapp:${config.ADMIN_WHATSAPP}`
-          })
-          .then(message => loggerInfo.info(`WhatsApp_id: ${message.sid} - Enviado a: ${message.to}`))
-          .catch(err => loggerWarn.warn(err.message))
-
-          //envio sms
-          // mensaje de texto al cliente
-          client.messages.create({
-            body: 'Su pedido ha sido recibido y se encuentra en proceso.',
-            from: config.TWILIO_NUM_SMS,
-            to: req.user.telefono
-        })
-            .then(message => loggerInfo.info(`SMS_id: ${message.sid} - Enviado a: ${message.to}`))
-            .catch(err => loggerWarn.warn(err.message))
+           
       res
         .status(200)
         .redirect("/index.html")
