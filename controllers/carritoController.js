@@ -120,4 +120,4 @@ const eliminarProducto = async (req, res) => {
   }
 };
 
-module.exports = eliminarProducto,eliminarCarrito,obtenerCarrito,obtenerCarritos,agregarProducto,crearCarrito;
+module.exports = {eliminarProducto,eliminarCarrito,obtenerCarrito,obtenerCarritos,agregarProducto,crearCarrito};
