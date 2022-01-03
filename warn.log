@@ -123,3 +123,9 @@
     at QueryReqWrap.onresolve [as oncomplete] (dns.js:203:19)
     at QueryReqWrap.callbackTrampoline (internal/async_hooks.js:131:14)
 [2022-01-03T15:12:36.402] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-03T15:15:36.141] [WARN] myWarn - Unhandled Rejection at: Error: querySrv ENOTFOUND _mongodb._tcp.luster0.zyvdl.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (dns.js:203:19)
+    at QueryReqWrap.callbackTrampoline (internal/async_hooks.js:131:14)
+[2022-01-03T15:15:36.143] [WARN] myWarn - Unhandled Rejection at: Error: querySrv ENOTFOUND _mongodb._tcp.luster0.zyvdl.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (dns.js:203:19)
+    at QueryReqWrap.callbackTrampoline (internal/async_hooks.js:131:14)
