@@ -1,7 +1,7 @@
 
 const express = require("express");
 const http = require("http");
-const Conexion = require("./config/config.js");
+const {mongodb} = require("./config/config.js");
 //librerias implementación de cluster
 const cluster = require('cluster');
 const numCPUs = require("os").cpus().length;
@@ -42,7 +42,7 @@ app.use(express.static(__dirname + '/public')); // espacio público del servidor
  app.use(cookieParser());
  app.use(session({
      store: MongoStore.create({
-         mongoUrl: "mongodb://localhost:27017/ecommerce",
+         mongoUrl: mongodb.cnxStr,
          mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
      }),
      secret: 'secreto',
