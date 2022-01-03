@@ -6,6 +6,7 @@ const {checkAuthentication} = require('../middleware/acceso');
 const {esAdmin} = require('../middleware/acceso');
 
 
+
 router.get("/agregar", esAdmin,checkAuthentication,  compraController.crearCompra);
 
 //router.get("/listar", esAdmin,checkAuthentication, compraController.obtenerCompras);
