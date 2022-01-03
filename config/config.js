@@ -35,11 +35,11 @@ module.exports =  {
     PORT: parseInt(process.argv[3]) || process.env.PORT || 8080,
     TIEMPO_EXPIRACION : 200000,
      // credenciales Twillio
-     TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
-     TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
-     TWILIO_NUM_SMS: process.env.TWILIO_NUM_SMS,
-     TWILIO_NUM_WHATSAPP: process.env.TWILIO_NUM_WHATSAPP,
+     TWILIO_ACCOUNT_SID: 'ACd879bb984b2c87312338f5fb9b947bb3',
+     TWILIO_AUTH_TOKEN: 'ACd879bb984b2c87312338f5fb9b947bb3',
+     TWILIO_NUM_SMS: '+543515322277',
+     TWILIO_NUM_WHATSAPP: '+14155238886',
 }
-  
+
 
 

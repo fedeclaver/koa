@@ -1,47 +1,7 @@
-[2022-01-02T21:18:18.806] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:19:20.519] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:19:22.253] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:19:22.481] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:19:22.670] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:19:22.804] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:19:22.975] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:19:23.122] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:19:25.668] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:20:08.537] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:21:14.987] [WARN] myWarn - Ruta /index.htmlimg/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:21:30.170] [WARN] myWarn - Unhandled Rejection at: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (_http_outgoing.js:558:11)
-    at ServerResponse.header (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:771:10)
-    at ServerResponse.send (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:170:12)
-    at exports.agregarProducto (E:\Users\Fede\Documents\DESA\backend\controllers\carritoController.js:50:21)
-    at runMicrotasks (<anonymous>)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)
-[2022-01-02T21:22:18.442] [WARN] myWarn - Ruta /index.htmlimg/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:22:26.482] [WARN] myWarn - Unhandled Rejection at: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (_http_outgoing.js:558:11)
-    at ServerResponse.header (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:771:10)
-    at ServerResponse.send (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:170:12)
-    at exports.agregarProducto (E:\Users\Fede\Documents\DESA\backend\controllers\carritoController.js:50:21)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)
-[2022-01-02T21:22:38.182] [WARN] myWarn - Ruta /index.htmlimg/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:25:45.219] [WARN] myWarn - Ruta /index.htmlimg/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:26:18.403] [WARN] myWarn - Ruta /index.htmlimg/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:26:32.535] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:31:30.619] [WARN] myWarn - Ruta /index.htmlimg/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:32:19.928] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:32:29.226] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:32:42.695] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:33:17.338] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:33:31.662] [WARN] myWarn - Ruta /img/1640919840650_20210414_192452%20(2).jpg método GET no implementado
-[2022-01-02T21:40:52.697] [WARN] myWarn - Unhandled Rejection at: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (_http_outgoing.js:558:11)
-    at ServerResponse.header (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:771:10)
-    at ServerResponse.send (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:170:12)
-    at exports.agregarProducto (E:\Users\Fede\Documents\DESA\backend\controllers\carritoController.js:50:21)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)
-[2022-01-02T21:41:39.017] [WARN] myWarn - Unhandled Rejection at: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at ServerResponse.setHeader (_http_outgoing.js:558:11)
-    at ServerResponse.header (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:771:10)
-    at ServerResponse.send (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:170:12)
-    at exports.agregarProducto (E:\Users\Fede\Documents\DESA\backend\controllers\carritoController.js:50:21)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-03T09:57:54.994] [WARN] myWarn - Ruta /favicon.ico método GET no implementado
+[2022-01-03T10:22:05.486] [WARN] myWarn - Ruta /Comprar/agregar/1 método GET no implementado
+[2022-01-03T10:23:04.380] [WARN] myWarn - Ruta /Comprar/agregar/1 método GET no implementado
+[2022-01-03T10:25:02.240] [WARN] myWarn - Ruta /Comprar/agregar/1 método GET no implementado
+[2022-01-03T10:26:08.494] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-03T10:27:04.245] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-03T10:42:20.857] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado

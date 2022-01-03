@@ -116,9 +116,9 @@ fetch("/carritos/listar")
             `<div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
 						<div class="d-flex flex-row"><img class="rounded" src=" ${carritos[i].productos[e].foto}" width="40">
 							<div class="ml-2"><span class="font-weight-bold d-block"> ${carritos[i].productos[e].nombre}</span>
-              <span class="spec">${carritos[i].productos[e].detalle}</span></div>
+              <span class="spec">${carritos[i].productos[e].descripcion}</span></div>
 						</div>
-						<div class="d-flex flex-row align-items-center"><span class="d-block">2</span>
+						<div class="d-flex flex-row align-items-center"><span class="d-block"> ${[e + 1]}</span>
             <span class="d-block ml-5 font-weight-bold">$${carritos[i].productos[e].precio}</span>
             <i class="fa fa-trash ml-3 text-black-50" onclick="eliminarProductoCarrito(${carritos[i].productos[e].id},${carritos[i].id})"></i></div>
                     
@@ -141,7 +141,7 @@ fetch("/carritos/listar")
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">TOTAL</div>
                 <div class="col text-right">${total}</div>
-            </div> <button class="btn btn-success">PAGAR</button>
+            </div> <button class="btn btn-success" onclick="comprarCarrito(${carritos[i].id})">PAGAR</button>
         </div>
         </div>
         
@@ -170,3 +170,14 @@ function login(){
   window.open ("popup.html","mywindow", "width=350,height=250");
 }
 
+function comprarCarrito(idc) {
+  if (idc != "") {
+    fetch("/compra/agregar/" + parseInt(idc))
+      .then((res) => res.text())
+      .then((res) => {
+        alert(res);
+        location.reload();
+        return false;
+      });
+  }
+}
