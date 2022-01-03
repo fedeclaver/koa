@@ -32,7 +32,7 @@ const passport = require('passport');
 
 const {checkAuthentication} = require('./middleware/acceso');
 
-
+app.use(express.static(__dirname + '/public')); // espacio público del servidor
 
 
  // Middlewares
@@ -61,7 +61,7 @@ const {checkAuthentication} = require('./middleware/acceso');
  // Rutas
  app.get('/', (req, res) => {
      try {
-         res.sendFile('index.html', { root: process.cwd() + '/src/public' });
+         res.sendFile('index.html', { root: process.cwd() + '/public' });
      } catch (error) {
          loggerWarn.warn(error.message)
      }
@@ -81,12 +81,14 @@ app.use("/carritos", carritosRouter);
  //app.use('/orders', checkAuthentication, routerOrders);
  //app.use('/auth', routerAuth);
 
- app.use(express.static(process.cwd() + '/src/public'));
+
 //Error de app
 app.use((err, req, res, next) => {
 console.error(err.message);
 return res.status(500).send("Se rompió todo");
 });
+
+app.use(express.static(process.cwd() + '/public'));
 
  app.use((req, res, next) => {
      loggerWarn.warn(`Ruta ${req.originalUrl} método ${req.method} no implementado`)

@@ -12,28 +12,28 @@ passport.use('login', new LocalStrategy({
 },
     async (req, username, password, done) => {
         // chequeamos si el usuario existe en mongo
-        const user = await usuariosDao.getById({ username: username });
+        const user = await usuariosDao.getById({ 'usuario': username });
 
         // si no existe
-        if (!user.username) {
+        if (!user.usuario) {
             return done(null, false, loggerWarn.warn('Usuario no existe!'));
         }
 
         // usuario existe pero esta mal la contraseña
-        if (!isValidPassword(user[0], password)) {
+        if (!isValidPassword(user.password, password)) {
             return done(null, false, loggerWarn.warn('Password incorrecto!'));
         }
 
         // Si todo OK
-        return done(null, user[0]);
+        return done(null,user);
 
     }
 ))
 
 // validar password
-const isValidPassword = (user, password) => {
-    return bcrypt.compareSync(password, user.password);
-}
+const isValidPassword = (userPassword, password) => {
+    return bcrypt.compareSync(password, userPassword)
+  }
 
 
 passport.use('signup', new LocalStrategy({
@@ -42,8 +42,8 @@ passport.use('signup', new LocalStrategy({
     (req, username, password, done) => {
 
         findOrCreateUser = async () => {
-            // buscar en mongo el username
-            const user = await usuariosDao.getById({ email: username });
+            // buscar en mongo el usuario
+            const user = await usuariosDao.getById({ 'usuario': username });
 
             // usuario ya existe
             if (user) {
@@ -54,9 +54,9 @@ passport.use('signup', new LocalStrategy({
                 return done(null, false, loggerWarn.warn('Faltó subir una foto de perfil'));
             }
 
-            // creamos el susuario
+            // creamos el usuario
             const newUser = {
-                username: username,
+                usuario: username,
                 password: createHash(password),
                 nombre: req.body.nombre,
                 direccion: req.body.direccion,
@@ -73,7 +73,7 @@ passport.use('signup', new LocalStrategy({
                 to: config.ADMIN_EMAIL,
                 subject: 'Nuevo Registro de Usuario',
                 html: `
-                        <p>Email: ${newUser.email}</p>
+                        <p>Email: ${newUser.username}</p>
                         <p>Nombre: ${newUser.nombre}</p>
                         <p>Dirección: ${newUser.direccion}</p>
                         <p>Edad: ${newUser.edad}</p>

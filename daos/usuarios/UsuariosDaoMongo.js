@@ -3,7 +3,7 @@ const ContenedorMongo = require("../../contenedores/ContenedorMongo.js");
 class UsuariosDaoMongo extends ContenedorMongo {
   constructor() {
     super("usuarios", {
-      username: {
+      usuario: {
         type: String,
         required: true,
       },

@@ -1,6 +1,6 @@
 // login
 const formLogin = document.querySelector('#loginForm'),
-    inputEmail = document.getElementById('username'),
+    inputEmail = document.getElementById('usuario'),
     inputPassword = document.getElementById('password');
 
 formLogin.onsubmit = async (e) => {
@@ -8,7 +8,7 @@ formLogin.onsubmit = async (e) => {
 
     let formData = new FormData(formLogin)
     let datosLogin = {
-        username: formData.get('username'),
+        usuario: formData.get('usuario'),
         password: formData.get('password')
     };
 
@@ -24,10 +24,11 @@ formLogin.onsubmit = async (e) => {
         const data = await response.json();
 
         if (data.status == "success") {
-            alert('Login correcto');
+            alert('Login correcto');          
+
             setTimeout(() => {
                 window.location.replace('/');
-            }, 500);
+            }, 1000);
         } else {
             alert('Login incorrecto');
         }
@@ -39,7 +40,7 @@ formLogin.onsubmit = async (e) => {
 
 // registro
 const formRegister = document.querySelector('#registerForm'),
-    inputEmail = document.getElementById('username'),
+    inputUsuario = document.getElementById('usuario'),
     inputPassword = document.getElementById('password'),
     inputNombre = document.getElementById('nombre'),
     inputDireccion = document.getElementById('direccion'),
@@ -52,7 +53,7 @@ formRegister.onsubmit = async (e) => {
 
     let formData = new FormData(formRegister)
     let datosRegistro = {
-        username: formData.get('username'),
+        usuario: formData.get('usuario'),
         password: formData.get('password'),
         nombre: formData.get('nombre'),
         direccion: formData.get('direccion'),
