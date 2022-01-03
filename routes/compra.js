@@ -7,13 +7,11 @@ const {checkAuthentication} = require('../middleware/acceso');
 const {esAdmin} = require('../middleware/acceso');
 
 
-router.get("/agregar", esAdmin,checkAuthentication,  function(req, res){
-    compraController.crearCarrito
-  });
+router.get("/agregar", esAdmin,checkAuthentication,  compraController.crearCompra);
 
-//router.get("/listar", esAdmin,checkAuthentication, compraController.obtenerCarritos);
+router.get("/listar", esAdmin,checkAuthentication, compraController.obtenerCarritos);
 
-//router.get("/listar/:id", esAdmin,checkAuthentication, compraController.obtenerCarrito);
+router.get("/listar/:id", esAdmin,checkAuthentication, compraController.obtenerCarrito);
 
 
 

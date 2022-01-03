@@ -59,15 +59,6 @@ app.use(express.static(__dirname + '/public')); // espacio público del servidor
  app.use(passport.session());
 
 
- // Rutas
- app.get('/', (req, res) => {
-     try {
-         res.sendFile('index.html', { root: process.cwd() + '/public' });
-     } catch (error) {
-         loggerWarn.warn(error.message)
-     }
- });
-
  app.get('/getUser', checkAuthentication, (req, res) => {
      try {
          res.json(req.user ?? { status: 'Usuario no logueado.'})
@@ -75,13 +66,13 @@ app.use(express.static(__dirname + '/public')); // espacio público del servidor
          loggerWarn.warn(error.message);
      }
  });
-
+ app.use("/compra", compraRouter);
 app.use('/auth', loginRouter)
 app.use("/productos", productosRouter);
 app.use("/carritos", carritosRouter);
-app.use("/compra", compraRouter);
- //app.use('/orders', checkAuthentication, routerOrders);
- //app.use('/auth', routerAuth);
+
+
+
 
 
 //Error de app
