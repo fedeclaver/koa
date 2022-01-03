@@ -66,7 +66,7 @@ app.use(express.static(__dirname + '/public')); // espacio público del servidor
          loggerWarn.warn(error.message);
      }
  });
- app.use("/compra", compraRouter);
+app.use("/compra", compraRouter);
 app.use('/auth', loginRouter)
 app.use("/productos", productosRouter);
 app.use("/carritos", carritosRouter);
