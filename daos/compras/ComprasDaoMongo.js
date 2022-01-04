@@ -2,7 +2,7 @@
 
 const ContenedorMongo = require('../../contenedores/ContenedorMongo.js')
 
-class CarritosDaoMongo extends ContenedorMongo {
+class ComprasDaoMongo extends ContenedorMongo {
 
     constructor() {
         super('Compras', {

@@ -95,4 +95,4 @@ const  obtenerCompra = async (req, res) => {
 };
 
 
-module.exports = {obtenerCompra,obtenerCompras,crearCompra};
+module.exports = {crearCompra};
