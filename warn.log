@@ -189,3 +189,134 @@
 [2022-01-04T11:16:08.895] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado
 [2022-01-04T11:16:25.368] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado
 [2022-01-04T11:16:28.549] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado
+[2022-01-04T11:43:36.933] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-04T11:44:15.975] [WARN] myWarn - Usuario ya existe!
+[2022-01-04T11:46:35.381] [WARN] myWarn - Usuario ya existe!
+[2022-01-04T11:49:37.248] [WARN] myWarn - Usuario ya existe!
+[2022-01-04T11:54:48.270] [WARN] myWarn - Usuario ya existe!
+[2022-01-04T12:00:46.509] [WARN] myWarn - Usuario ya existe!
+[2022-01-04T12:04:14.268] [WARN] myWarn - Unhandled Rejection at: CastError: Cast to ObjectId failed for value "{ id: { usuario: 'cfclaver@hotmail.com' } }" (type Object) at path "_id" for model "usuarios"
+    at model.Query.exec (E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\query.js:4545:21)
+    at model.Query.Query.then (E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\query.js:4644:15)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T12:14:22.000] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-04T12:29:43.331] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-04T12:32:17.784] [WARN] myWarn - Ruta /img/1641306030555_fede.jpg método GET no implementado
+[2022-01-04T12:32:55.004] [WARN] myWarn - Unhandled Rejection at: Error: data and hash arguments required
+    at Object.compareSync (E:\Users\Fede\Documents\DESA\backend\node_modules\bcrypt\bcrypt.js:166:15)
+    at isValidPassword (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:37:19)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:24:14)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T12:34:58.366] [WARN] myWarn - Unhandled Rejection at: Error: data and hash arguments required
+    at Object.compareSync (E:\Users\Fede\Documents\DESA\backend\node_modules\bcrypt\bcrypt.js:166:15)
+    at isValidPassword (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:37:19)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:24:14)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T12:34:58.371] [WARN] myWarn - Unhandled Rejection at: Error: data and hash arguments required
+    at Object.compareSync (E:\Users\Fede\Documents\DESA\backend\node_modules\bcrypt\bcrypt.js:166:15)
+    at isValidPassword (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:37:19)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:24:14)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T12:36:33.713] [WARN] myWarn - Unhandled Rejection at: Error: data and hash arguments required
+    at Object.compareSync (E:\Users\Fede\Documents\DESA\backend\node_modules\bcrypt\bcrypt.js:166:15)
+    at isValidPassword (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:37:19)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:24:14)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T12:37:05.447] [WARN] myWarn - Unhandled Rejection at: TypeError: usuariosDao.findOne is not a function
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:335:12)
+[2022-01-04T12:50:23.218] [WARN] myWarn - Unhandled Rejection at: TypeError: usuariosDao.findOne is not a function
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:335:12)
+[2022-01-04T12:56:47.258] [WARN] myWarn - Unhandled Rejection at: TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Topology'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at UsuariosDaoMongo.getUserById (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:69:28)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+[2022-01-04T12:58:16.723] [WARN] myWarn - Unhandled Rejection at: TypeError: this.coleccion.getById is not a function
+    at UsuariosDaoMongo.getUserById (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:64:33)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+[2022-01-04T13:11:22.008] [WARN] myWarn - Ruta /img/1641306030555_fede.jpg método GET no implementado
+[2022-01-04T13:17:45.894] [WARN] myWarn - Unhandled Rejection at: ReferenceError: usuario is not defined
+    at UsuariosDaoMongo.getByname (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:65:47)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+[2022-01-04T13:18:33.724] [WARN] myWarn - Unhandled Rejection at: CastError: Cast to string failed for value "{ usuario: /^cfclaveraraosdsdsz@teco.com.ar$/i }" (type Object) at path "usuario" for model "usuarios"
+    at model.Query.exec (E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\query.js:4545:21)
+    at model.Query.Query.then (E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\query.js:4644:15)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T13:21:54.854] [WARN] myWarn - Unhandled Rejection at: ReferenceError: username is not defined
+    at UsuariosDaoMongo.getByname (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:65:72)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+[2022-01-04T13:22:21.397] [WARN] myWarn - Unhandled Rejection at: ReferenceError: username is not defined
+    at UsuariosDaoMongo.getByname (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:65:72)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+[2022-01-04T13:22:44.133] [WARN] myWarn - Unhandled Rejection at: ReferenceError: username is not defined
+    at UsuariosDaoMongo.getByname (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:65:72)
+    at Strategy._verify (E:\Users\Fede\Documents\DESA\backend\auth\passport.js:15:40)
+    at Strategy.authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport-local\lib\strategy.js:88:12)
+    at attempt (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:369:16)
+    at authenticate (E:\Users\Fede\Documents\DESA\backend\node_modules\passport\lib\middleware\authenticate.js:370:7)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
+[2022-01-04T13:36:51.491] [WARN] myWarn - Ruta /styles.css método GET no implementado

@@ -81,7 +81,7 @@ console.error(err.message);
 return res.status(500).send("Se rompió todo");
 });
 
-app.use(express.static(__dirname + '/public')); // espacio público del servidor
+app.use(express.static(process.cwd() + '/public'));
 
  app.use((req, res, next) => {
      loggerWarn.warn(`Ruta ${req.originalUrl} método ${req.method} no implementado`)
