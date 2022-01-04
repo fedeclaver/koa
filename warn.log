@@ -182,3 +182,10 @@
     at crearCarrito (E:\Users\Fede\Documents\DESA\backend\controllers\carritoController.js:26:21)
     at processTicksAndRejections (internal/process/task_queues.js:93:5)
 [2022-01-04T10:07:15.695] [WARN] myWarn - Ruta /compra/agregar/2 método GET no implementado
+[2022-01-04T11:15:12.682] [WARN] myWarn - Ruta /favicon.ico método GET no implementado
+[2022-01-04T11:15:18.630] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado
+[2022-01-04T11:15:25.495] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado
+[2022-01-04T11:15:30.071] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado
+[2022-01-04T11:16:08.895] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado
+[2022-01-04T11:16:25.368] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado
+[2022-01-04T11:16:28.549] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado

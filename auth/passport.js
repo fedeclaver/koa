@@ -73,8 +73,8 @@ passport.use('signup', new LocalStrategy({
             if (creausuario) {
                 //aviso log con Gmail
                 transporterGmail.sendMail({
-                    from: config.GMAIL_USER,
-                    to: config.ADMIN_EMAIL,
+                    from: config.gmail.user,
+                    to:  config.gmail.admin,
                     subject: 'Nuevo Registro de Usuario',
                     html: `
                         <p>Email: ${newUser.username}</p>
