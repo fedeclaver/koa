@@ -8,7 +8,7 @@ module.exports =  {
     },
     admin:true,
     mongodb: {
-       cnxStr: '"mongodb+srv://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASSWORD + '@' + process.env.MONGO_SERVER + '/' + process.env.MONGO_BASE + '"',
+       cnxStr:  process.env.MONGO_ATLAS ,
      // cnxStr:'mongodb://localhost:27017/ecommerce',
         options: {
             useNewUrlParser: true,
