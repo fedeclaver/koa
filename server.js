@@ -101,7 +101,7 @@ if (process.argv[2] && !isNaN(process.argv[2])) {
 } else if (isNaN(process.argv[2])) {
     console.log('No se ingresó un puerto válido, se usará el 8080');
     loggerTrace.trace('No se ingresó un puerto válido, se usará el 8080')
-    puerto = 8080
+    puerto = (process.env.PORT || 8080)
 }
 if (process.argv[3] && isNaN(process.argv[3])) {
   modo = process.argv[3] 
