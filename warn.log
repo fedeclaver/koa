@@ -148,3 +148,37 @@
 [2022-01-03T17:18:54.786] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
 [2022-01-03T17:24:06.232] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
 [2022-01-03T17:24:11.179] [WARN] myWarn - Ruta /compra/agregar/1 método POST no implementado
+[2022-01-04T09:06:02.406] [WARN] myWarn - Ruta /favicon.ico método GET no implementado
+[2022-01-04T09:06:15.768] [WARN] myWarn - Password incorrecto!
+[2022-01-04T09:06:28.605] [WARN] myWarn - Ruta /img/1641265318276_fede.jpg método GET no implementado
+[2022-01-04T09:07:04.057] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T09:10:12.068] [WARN] myWarn - Unhandled Rejection at: Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.zyvdl.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (dns.js:203:19)
+    at QueryReqWrap.callbackTrampoline (internal/async_hooks.js:131:14)
+[2022-01-04T09:11:23.596] [WARN] myWarn - Unhandled Rejection at: Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.zyvdl.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (dns.js:203:19)
+    at QueryReqWrap.callbackTrampoline (internal/async_hooks.js:131:14)
+[2022-01-04T09:12:59.707] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T09:13:14.651] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T09:15:04.748] [WARN] myWarn - Unhandled Rejection at: MongooseServerSelectionError: connection timed out
+    at NativeConnection.Connection.openUri (E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\connection.js:797:32)
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\index.js:330:10
+    at E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\helpers\promiseOrCallback.js:32:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\helpers\promiseOrCallback.js:31:10)
+    at Mongoose._promiseOrCallback (E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\index.js:1151:10)
+    at Mongoose.connect (E:\Users\Fede\Documents\DESA\backend\node_modules\mongoose\lib\index.js:329:20)
+    at Object.<anonymous> (E:\Users\Fede\Documents\DESA\backend\contenedores\ContenedorMongo.js:5:10)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+[2022-01-04T09:15:19.170] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T09:37:18.293] [WARN] myWarn - Ruta /carritos/listar método GET no implementado
+[2022-01-04T09:37:20.098] [WARN] myWarn - Ruta /carritos/listar método GET no implementado
+[2022-01-04T09:38:38.879] [WARN] myWarn - Ruta /carritos/listar método GET no implementado
+[2022-01-04T09:50:51.199] [WARN] myWarn - Unhandled Rejection at: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.json (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:264:10)
+    at crearCarrito (E:\Users\Fede\Documents\DESA\backend\controllers\carritoController.js:26:21)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T10:07:15.695] [WARN] myWarn - Ruta /compra/agregar/2 método GET no implementado

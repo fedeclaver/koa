@@ -9,9 +9,9 @@ const {esAdmin} = require('../middleware/acceso');
 
 router.get("/agregar", esAdmin,checkAuthentication,  compraController.crearCompra);
 
-//router.get("/listar", esAdmin,checkAuthentication, compraController.obtenerCompras);
+router.get("/listar", esAdmin,checkAuthentication, compraController.obtenerCompras);
 
-//router.get("/listar/:id", esAdmin,checkAuthentication, compraController.obtenerCompra);
+router.get("/listar/:id", esAdmin,checkAuthentication, compraController.obtenerCompra);
 
 
 module.exports = router;

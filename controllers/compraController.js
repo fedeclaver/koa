@@ -4,9 +4,6 @@ const transporterGmail = require('../email/gmail');
 const carritosDao = require("../daos/carritos/index.js");
 const config = require('../config/config');
 // twilio
-const accountSid = config.TWILIO_ACCOUNT_SID;
-const authToken = config.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken); 
 
 
 
@@ -95,4 +92,4 @@ const  obtenerCompra = async (req, res) => {
 };
 
 
-module.exports = {crearCompra};
+module.exports = {obtenerCompra,obtenerCompras,crearCompra};

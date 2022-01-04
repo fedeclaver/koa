@@ -9,13 +9,13 @@ var http = require("http");
 const crearCarrito = async (req, res) => {
   loggerTrace.trace("Ingreso a crearCarrito");
   try {
-       objeto = Object.assign({ timestamp: Date.now() ,  productos: [''] });
+    let objeto = {productos: []}
+       objeto = Object.assign({ timestamp: Date.now() , objeto });
        
-    const idCarrito = await carritosDao.guardar(objeto);
+    const idCarrito = await carritosDao.save(objeto);
     if (idCarrito) {
       res
-        .status(200)
-        .redirect("/index.html")
+        .status(200)        
         .json({ msg: `Carrito insertado correctamente id:${idCarrito}` });
     } else {
       res.status(500).json({ msg: "Error al crearCarrito" });
@@ -81,7 +81,7 @@ const  obtenerCarrito = async (req, res) => {
 const  eliminarCarrito = async (req, res) => {
   loggerTrace.trace("Ingreso a eliminarCarrito");
   try {
-    let carrito = await Producto.deleteById(req.params.id);
+    let carrito = await carritosDao.deleteById(req.params.id);
     if (!carrito) {
       res.status(404).json({ msg: "Carrito no encontrado" });
     } else {

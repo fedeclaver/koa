@@ -22,7 +22,7 @@ class ContenedorMongo {
                 max = JSON.parse(max[0].id);
                 objeto.id = max + 1;
             }
-            let doc = await this.coleccion.create(objeto);
+            let doc = await this.coleccion.create(JSON.parse(objeto));
             doc = parse_obj(doc)
             return doc
         } catch (error) {
@@ -31,16 +31,24 @@ class ContenedorMongo {
     }
 
 
-    async save(objeto) {
-
-        let producto = await this.coleccion.create(objeto);
-        parse_obj(producto);
-        return producto
-    } catch(error) {
-        console.log(`Error en lectura: ${error}`);
-        throw new Error(`Error en lectura: ${error}`);
+    async save(object) {
+        //Recibe un objeto, lo inserta en la tabla.
+        let id
+        let resp
+        const cantidad = await this.coleccion.find({}).count()
+        if (cantidad == 0){
+            id = 1
+        }
+        else{
+            resp = await this.coleccion.find({},{_id:0,id:1}).sort({id:-1}).limit(1) //obtiene el maximo id
+            id = resp[0].id + 1 //determina el proximo id
+        }
+        object.id = id //inserta id en el objeto
+        const usuarioSaveModel = new this.coleccion(object)
+        await usuarioSaveModel.save()
+        return id
     }
-
+    
 
     //buscar todos los registros.
     async getAll() {

@@ -89,6 +89,17 @@ function getCarrito(id) {
       return false;
     });
 }
+function borrarCarrito(id) {
+  fetch("/carritos/borrar/" + id, {
+    method: "DELETE",
+  })
+    .then((res) => res.text())
+    .then((res) => {
+      alert(res);
+      location.reload();
+      return false;
+    });
+}
 
 fetch("/carritos/listar")
   .then((resp) => resp.json())
@@ -104,7 +115,9 @@ fetch("/carritos/listar")
         <div class="col-md-8">
           <div class="product-details mr-2">
             <div class="d-flex flex-row align-items-center">
-            <i class="fa fa-long-arrow-left"></i><span class="ml-2">Carrito ${carritos[i].id}</span></div>
+            <i class="fa fa-long-arrow-left"></i><span class="ml-2">Carrito ${carritos[i].id}</span> 
+            <i class="fa fa-trash" onclick="borrarCarrito(${carritos[i].id})"></i>
+            </div>
             <hr>
             <h6 class="mb-0">Detalle Compra</h6>`;
       if (undefined !== carritos[i].productos && carritos[i].productos.length) {

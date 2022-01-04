@@ -5,9 +5,8 @@ const ContenedorMongo = require('../../contenedores/ContenedorMongo.js')
 class ComprasDaoMongo extends ContenedorMongo {
 
     constructor() {
-        super('Compras', {
+        super('compras', {
             id: { type: Number, required: true },
-            usuario:{type: String, required: true},
             timestamp: {type: String, required: true },
             productos:[{
                 id: { type: Number, required: true },
@@ -26,4 +25,4 @@ class ComprasDaoMongo extends ContenedorMongo {
    
 }
 
-module.exports = CarritosDaoMongo;
+module.exports = ComprasDaoMongo;
