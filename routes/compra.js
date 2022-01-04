@@ -1,17 +1,17 @@
 const express = require("express");
 const { Router } = express;
 const router = new Router();
-const compraController = require("../controllers/compraController");
+const comprasController = require("../controllers/comprasController");
 const {checkAuthentication} = require('../middleware/acceso');
 const {esAdmin} = require('../middleware/acceso');
 
 
 
-router.get("/agregar", esAdmin,checkAuthentication,  compraController.crearCompra);
+router.get("/agregar", esAdmin,checkAuthentication,  comprasController.crearCompra);
 
-router.get("/listar", esAdmin,checkAuthentication, compraController.obtenerCompras);
+router.get("/listar", esAdmin,checkAuthentication, comprasController.obtenerCompras);
 
-router.get("/listar/:id", esAdmin,checkAuthentication, compraController.obtenerCompra);
+router.get("/listar/:id", esAdmin,checkAuthentication, comprasController.obtenerCompra);
 
 
 module.exports = router;

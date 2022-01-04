@@ -19,7 +19,7 @@ const crearCompra = async (req, res) => {
       res.status(404).json({ msg: "Carrito no encontrado" });
     } ;
        
-    const idcompra = await comprasDao.guardar(carrito);
+    const idcompra = await comprasDao.save(carrito);
     if (idcompra) {
               // envio de email al admin
               transporterGmail.sendMail({

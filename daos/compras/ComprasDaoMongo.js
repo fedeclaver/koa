@@ -16,7 +16,7 @@ class ComprasDaoMongo extends ContenedorMongo {
                 codigo: { type: Number, required: true },
                 foto: { type: String, required: true },
                 precio: { type: Number, required: true }, 
-                cantidad:{type: Number, required: true ,min: [1, 'Quantity can not be less then 1.'],deafult: 1},
+                cantidad:{type: Number, required: true },
                 stock: { type: Number, required: true }
             }]
         })
