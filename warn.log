@@ -370,3 +370,11 @@
     at processTicksAndRejections (internal/process/task_queues.js:93:5)
 [2022-01-04T22:09:10.994] [WARN] myWarn - Authenticate
 [2022-01-04T22:09:11.026] [WARN] myWarn - Authenticate
+[2022-01-05T08:48:08.165] [WARN] myWarn - Ruta /favicon.ico método GET no implementado
+[2022-01-05T08:48:11.322] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-05T08:48:22.572] [WARN] myWarn - Usuario ya existe!
+[2022-01-05T08:51:45.693] [WARN] myWarn - Ruta /img/1641316898654_fede.jpg método GET no implementado
+[2022-01-05T09:02:17.102] [WARN] myWarn - Ruta /img/1641316898654_fede.jpg método GET no implementado
+[2022-01-05T09:02:21.873] [WARN] myWarn - Ruta /img/1641316898654_fede.jpg método GET no implementado
+[2022-01-05T09:23:03.570] [WARN] myWarn - Authenticate
+[2022-01-05T09:23:03.637] [WARN] myWarn - Authenticate

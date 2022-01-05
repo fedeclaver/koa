@@ -29,17 +29,16 @@ const crearCompra = async (req, res) => {
     const idcompra = await comprasDao.save(objeto);
     if (idcompra) {
       let carrito = await carritosDao.deleteById(req.params.id);
-      if (carrito){
-        loggerInfo.info("carrito borrado");
-      }
-      const productosList = carrito.productos
-      .map(
+   
+   
+      const productosList = objeto.productos.map(
         (product) =>
           `
       <li>codigo:${product.id}--producto:${product.nombre}</li>
       `
       )
       .join("\n");
+
 
 
               // envio de email al admin
