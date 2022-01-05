@@ -320,3 +320,53 @@
     at Layer.handle [as handle_request] (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\layer.js:95:5)
     at E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\router\index.js:281:22
 [2022-01-04T13:36:51.491] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-04T14:13:32.180] [WARN] myWarn - Password incorrecto!
+[2022-01-04T14:13:50.048] [WARN] myWarn - Password incorrecto!
+[2022-01-04T14:18:55.978] [WARN] myWarn - Password incorrecto!
+[2022-01-04T14:19:41.847] [WARN] myWarn - Password incorrecto!
+[2022-01-04T14:19:48.125] [WARN] myWarn - Password incorrecto!
+[2022-01-04T14:20:01.265] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-04T14:20:23.642] [WARN] myWarn - Usuario ya existe!
+[2022-01-04T14:20:46.155] [WARN] myWarn - Usuario ya existe!
+[2022-01-04T14:20:50.299] [WARN] myWarn - Usuario ya existe!
+[2022-01-04T14:20:55.426] [WARN] myWarn - Password incorrecto!
+[2022-01-04T14:21:00.515] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-04T14:22:30.148] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T14:23:50.180] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T14:24:12.132] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T14:24:19.848] [WARN] myWarn - Password incorrecto!
+[2022-01-04T14:25:10.161] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T14:25:45.032] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T14:29:02.722] [WARN] myWarn - Ruta /auth/login método GET no implementado
+[2022-01-04T14:29:32.919] [WARN] myWarn - Ruta /auth/login método GET no implementado
+[2022-01-04T14:31:03.961] [WARN] myWarn - Unhandled Rejection at: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:267:15)
+    at crearCompra (E:\Users\Fede\Documents\DESA\backend\controllers\comprasController.js:65:21)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T14:32:16.541] [WARN] myWarn - Unhandled Rejection at: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:267:15)
+    at crearCompra (E:\Users\Fede\Documents\DESA\backend\controllers\comprasController.js:65:21)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T16:08:53.088] [WARN] myWarn - Ruta /compra/agregar/2 método GET no implementado
+[2022-01-04T16:09:33.043] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T16:10:08.020] [WARN] myWarn - Ruta /compra/agregar/1 método GET no implementado
+[2022-01-04T16:40:37.104] [WARN] myWarn - Ruta /styles.css método GET no implementado
+[2022-01-04T21:42:39.989] [WARN] myWarn - Ruta /login método POST no implementado
+[2022-01-04T21:42:50.001] [WARN] myWarn - Ruta /login método GET no implementado
+[2022-01-04T21:42:53.433] [WARN] myWarn - Ruta /login método POST no implementado
+[2022-01-04T21:43:20.459] [WARN] myWarn - Ruta /login método POST no implementado
+[2022-01-04T22:09:10.244] [WARN] myWarn - Unhandled Rejection at: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:558:11)
+    at ServerResponse.header (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:771:10)
+    at ServerResponse.send (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\Users\Fede\Documents\DESA\backend\node_modules\express\lib\response.js:267:15)
+    at crearCompra (E:\Users\Fede\Documents\DESA\backend\controllers\comprasController.js:83:21)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-04T22:09:10.994] [WARN] myWarn - Authenticate
+[2022-01-04T22:09:11.026] [WARN] myWarn - Authenticate

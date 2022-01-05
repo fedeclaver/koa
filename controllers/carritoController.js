@@ -107,7 +107,7 @@ const eliminarProducto = async (req, res) => {
 
 
     let resultado = carrito.productos.filter((e) => e.id !== parseInt(req.params.id_prod));
-    carrito.productos = parse_obj(resultado[0]);
+    carrito.productos = parse_obj(resultado);
     let carritoact = await carritosDao.update(carrito);     
     if (carritoact) {
       res.status(200).json({ msg: `El Producto se elimino correctamente` });

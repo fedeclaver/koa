@@ -66,7 +66,7 @@ const {checkAuthentication} = require('./middleware/acceso');
          loggerWarn.warn(error.message);
      }
  });
-app.use("/compras", compraRouter);
+app.use("/compra", compraRouter);
 app.use('/auth', loginRouter)
 app.use("/productos", productosRouter);
 app.use("/carritos", carritosRouter);

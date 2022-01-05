@@ -4,29 +4,50 @@ const transporterGmail = require('../email/gmail');
 const carritosDao = require("../daos/carritos/index.js");
 const config = require('../config/config');
 // twilio
-
+const accountSid = config.TWILIO_ACCOUNT_SID;
+const authToken = config.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken); 
 
 
 const parse_obj = obj => JSON.parse(JSON.stringify(obj))
 var http = require("http");
 
 const crearCompra = async (req, res) => {
-  console.log('compra');
+
   loggerTrace.trace("Ingreso a crearcompra");
   try {
-    let carrito = await carritosDao.getById(req.params.idc);
+    let carrito = await carritosDao.getById(req.params.id);
     if (!carrito) {
       res.status(404).json({ msg: "Carrito no encontrado" });
     } ;
-       
-    const idcompra = await comprasDao.save(carrito);
+    let objeto = {
+        timestamp: Date.now(),
+        productos: parse_obj(carrito.productos)    
+  }
+ 
+
+    const idcompra = await comprasDao.save(objeto);
     if (idcompra) {
+      let carrito = await carritosDao.deleteById(req.params.id);
+      if (carrito){
+        loggerInfo.info("carrito borrado");
+      }
+      const productosList = carrito.productos
+      .map(
+        (product) =>
+          `
+      <li>codigo:${product.id}--producto:${product.nombre}</li>
+      `
+      )
+      .join("\n");
+
+
               // envio de email al admin
               transporterGmail.sendMail({
                 from: config.gmail.user,
                 to: config.gmail.admin,
-                subject: `Nuevo Pedido de ${req.user.nombre} - ${req.user.email}`,
-                html: `<div><h4>Productos:</h4>${template}</div>`
+                subject: `Nuevo Pedido de ${req.user.nombre} - ${req.user.usuario}`,
+                html: `<div><h4>Productos:</h4></br><ul> ${productosList}</ul></div>`
             }, (err, info) => {
                 if (err) {
                     loggerWarn.warn(err.message)
@@ -52,11 +73,13 @@ const crearCompra = async (req, res) => {
             to: req.user.telefono
         })
             .then(message => loggerInfo.info(`SMS_id: ${message.sid} - Enviado a: ${message.to}`))
-            .catch(err => loggerWarn.warn(err.message))
-      res
-        .status(200)
-        .redirect("/index.html")
-        .json({ msg: `Compra insertado correctamente id:${idcompra}` });
+            .catch(err => loggerWarn.warn(err.message))   
+            
+            
+
+
+            res.status(200).json({ msg: `Compra insertado correctamente id:${idcompra}` });          
+          
     } else {
       res.status(500).json({ msg: "Error al crearCompra" });
     }
