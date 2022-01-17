@@ -8,8 +8,8 @@ module.exports =  {
     },
     admin:true,
     mongodb: {
-       cnxStr:  process.env.MONGO_ATLAS ,
-      //cnxStr:'mongodb://localhost:27017/ecommerce',
+       //cnxStr:  process.env.MONGO_ATLAS ,
+      cnxStr:'mongodb://localhost:27017/ecommerce',
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true,
@@ -41,6 +41,8 @@ module.exports =  {
      TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
      TWILIO_NUM_SMS: process.env.TWILIO_NUM_SMS,
      TWILIO_NUM_WHATSAPP: process.env.TWILIO_NUM_WHATSAPP,
+     ADMIN_WHATSAPP:process.env.ADMIN_WHATSAPP,
+     TWILIO_SMS_SERVICE: process.env.TWILIO_SMS_SERVICE
 }
 
 

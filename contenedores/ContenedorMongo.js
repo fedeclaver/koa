@@ -52,12 +52,18 @@ class ContenedorMongo {
 
     //buscar todos los registros.
     async getAll() {
-
-        return  await this.coleccion.find({})
+        let doc = await this.coleccion.find({})        
+        return doc
     }
     //buscar un id 
     async getById(id) {
         return await this.coleccion.findOne({ id: id }, { _id: 0, __v: 0 })
+    }
+     //buscar 
+     async getByName(usuario) {
+        let doc = await this.coleccion.findOne({ 'usuario': usuario })
+        doc = parse_obj(doc)
+        return doc
     }
     //borrar un id 
     async deleteById(id) {

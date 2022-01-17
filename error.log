@@ -1,116 +1,51 @@
-[2022-01-03T13:27:08.187] [ERROR] myError - Error: Missing credentials for "PLAIN"
-    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
-    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
-    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
-    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
-    at Object.onceWrapper (events.js:421:28)
-    at SMTPConnection.emit (events.js:315:20)
-    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
-    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
-    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
-    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
-  code: 'EAUTH',
-  command: 'API'
-}
-[2022-01-03T13:37:12.047] [ERROR] myError - Error: Missing credentials for "PLAIN"
-    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
-    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
-    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
-    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
-    at Object.onceWrapper (events.js:421:28)
-    at SMTPConnection.emit (events.js:315:20)
-    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
-    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
-    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
-    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
-  code: 'EAUTH',
-  command: 'API'
-}
-[2022-01-03T13:40:54.954] [ERROR] myError - Error: Missing credentials for "PLAIN"
-    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
-    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
-    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
-    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
-    at Object.onceWrapper (events.js:421:28)
-    at SMTPConnection.emit (events.js:315:20)
-    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
-    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
-    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
-    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
-  code: 'EAUTH',
-  command: 'API'
-}
-[2022-01-03T14:24:17.977] [ERROR] myError - Error: Unexpected socket close
-    at Timeout._onTimeout (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:189:31)
-    at listOnTimeout (internal/timers.js:554:17)
-    at processTimers (internal/timers.js:497:7)
-[2022-01-03T15:24:42.527] [ERROR] myError - Error: Missing credentials for "PLAIN"
-    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
-    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
-    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
-    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
-    at Object.onceWrapper (events.js:421:28)
-    at SMTPConnection.emit (events.js:315:20)
-    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
-    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
-    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
-    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
-  code: 'EAUTH',
-  command: 'API'
-}
-[2022-01-04T12:13:06.070] [ERROR] myError - Error: Missing credentials for "PLAIN"
-    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
-    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
-    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
-    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
-    at Object.onceWrapper (events.js:421:28)
-    at SMTPConnection.emit (events.js:315:20)
-    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
-    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
-    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
-    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
-  code: 'EAUTH',
-  command: 'API'
-}
-[2022-01-04T12:13:06.299] [ERROR] myError - Error: Missing credentials for "PLAIN"
-    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
-    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
-    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
-    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
-    at Object.onceWrapper (events.js:421:28)
-    at SMTPConnection.emit (events.js:315:20)
-    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
-    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
-    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
-    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
-  code: 'EAUTH',
-  command: 'API'
-}
-[2022-01-04T12:16:21.917] [ERROR] myError - Error: Missing credentials for "PLAIN"
-    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
-    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
-    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
-    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
-    at Object.onceWrapper (events.js:421:28)
-    at SMTPConnection.emit (events.js:315:20)
-    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
-    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
-    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
-    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
-  code: 'EAUTH',
-  command: 'API'
-}
-[2022-01-04T12:31:22.503] [ERROR] myError - Error: Missing credentials for "PLAIN"
-    at SMTPConnection._formatError (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
-    at SMTPConnection.login (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:438:38)
-    at E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-transport\index.js:271:32
-    at SMTPConnection.<anonymous> (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:209:17)
-    at Object.onceWrapper (events.js:421:28)
-    at SMTPConnection.emit (events.js:315:20)
-    at SMTPConnection._actionEHLO (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:1319:14)
-    at SMTPConnection._processResponse (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:947:20)
-    at SMTPConnection._onData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
-    at TLSSocket.SMTPConnection._onSocketData (E:\Users\Fede\Documents\DESA\backend\node_modules\nodemailer\lib\smtp-connection\index.js:189:44) {
-  code: 'EAUTH',
-  command: 'API'
-}
+[2022-01-17T00:13:27.073] [ERROR] myError - TypeError: Cannot read property 'json' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:66:13)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T00:17:03.822] [ERROR] myError - TypeError: Cannot read property 'json' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:66:13)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T00:18:56.886] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:68:18)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T00:27:07.948] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:68:18)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T00:27:10.863] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:68:18)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T00:27:18.155] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:68:18)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T00:30:31.693] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:68:18)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T00:43:05.298] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:71:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T00:43:07.313] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:71:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T00:45:14.121] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:71:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T01:01:17.174] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:71:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37
+[2022-01-17T01:05:47.597] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:71:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[2022-01-17T01:06:35.428] [ERROR] myError - TypeError: Cannot read property 'status' of undefined
+    at Object.obtenerMensajes (E:\Users\Fede\Documents\DESA\backend\clase38\controllers\mensajesController.js:71:25)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:12:37

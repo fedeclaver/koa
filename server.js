@@ -8,8 +8,12 @@ const numCPUs = require("os").cpus().length;
 //const express = require('express');
 const app = express();
 const httpServer = http.createServer(app);
+//cost socket
+
+const { Server: Socket } = require('socket.io')
 
 
+const io = new Socket(httpServer)
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -23,9 +27,9 @@ app.use(express.static('public'))
 const { loggerTrace,loggerInfo, loggerWarn, loggerError } = require('./utils/log4js.js');
 
 const productosRouter = require('./routes/productos');
-const carritosRouter = require('./routes/carritos');
+
 const loginRouter = require('./routes/login');
-const compraRouter = require('./routes/compra');
+
 
 
 const passport = require('passport');
@@ -66,13 +70,19 @@ const {checkAuthentication} = require('./middleware/acceso');
          loggerWarn.warn(error.message);
      }
  });
-app.use("/compra", compraRouter);
+
 app.use('/auth', loginRouter)
 app.use("/productos", productosRouter);
-app.use("/carritos", carritosRouter);
 
 
 
+
+// SOCKETS 
+const webSocket = require('./services/sockets');
+const onConnection = (socket) => {
+    webSocket(io, socket);
+}
+io.on('connection', onConnection);
 
 
 //Error de app

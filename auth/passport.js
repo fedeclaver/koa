@@ -12,7 +12,7 @@ passport.use('login', new LocalStrategy({
 },
     async (req, username, password, done) => {
         // chequeamos si el usuario existe en mongo
-        const user = await usuariosDao.getById({ 'usuario': username });
+        const user = await usuariosDao.getByName(username);
 
         // si no existe
         if (!user) {
