@@ -63,34 +63,16 @@ const obtenerMensajes = async (req, res) => {
 }
 
 
-
-const obtenerMensaje = async (req, res) => {
-    loggerTrace.trace("Ingreso a obtenerMensaje");
-    try {
-        let producto = await mensajesDao.getById(req.params.id);
-
-        if (!producto) {
-            res.status(404).json({ msg: 'No existe el Mensaje' })
-        }
-
-        res.json(producto);
-
-    } catch (error) {
-        loggerError.error(error);
-        res.status(500).send('Hubo un error');
-    }
-}
-
 const eliminarMensajes = async (req, res) => {
     loggerTrace.trace("Ingreso a eliminarMensajes");
     try {
         let mensajes = await mensajesDao.deleteAll();
 
-        if (!mensajes) {
-            res.status(404).json({ msg: 'No existe el Mensaje' })
+        if (mensajes) {
+           return mensajes
         }
 
-        res.json({ msg: 'Mensajes eliminados con exito' });
+
 
     } catch (error) {
         loggerError.error(error);
@@ -98,4 +80,4 @@ const eliminarMensajes = async (req, res) => {
     }
 }
 
-module.exports = {eliminarMensajes,obtenerMensaje,obtenerMensajes,crearMensaje};
+module.exports = {eliminarMensajes,obtenerMensajes,crearMensaje};

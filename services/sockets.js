@@ -14,16 +14,18 @@ module.exports = (io, socket) => {
         })();
         socket.on('nuevoMensaje', (mensaje) => {
             mensaje.fyh = new Date().toLocaleString()
-            const id = mensajesController.crearMensaje(mensaje);    
+            let id = mensajesController.crearMensaje(mensaje);    
             if (id) {
                 io.sockets.emit('mensaje', mensajesController.obtenerMensajes());
                 }    
             }) 
        
-        socket.on('deleteMensaje', async (data) => {
-            await mensaje.eliminarMensajes();
-            io.sockets.emit('mensaje', await mensajesController.obtenerMensajes());
-            loggerInfo.info(`ws: ${data}`);
+        socket.on('deleteMensajes', async (data) => {
+            let id = await mensajesController.eliminarMensajes();
+            if (id) {
+            io.sockets.emit('mensaje', id);          
+            }
+            
         });
 
     } catch (error) {

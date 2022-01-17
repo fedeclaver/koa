@@ -2,3 +2,6 @@
 [2022-01-17T12:55:56.942] [WARN] myWarn - Ruta /img/1641316898654_fede.jpg método GET no implementado
 [2022-01-17T17:50:50.645] [WARN] myWarn - Ruta /img/1641316898654_fede.jpg método GET no implementado
 [2022-01-17T17:51:06.335] [WARN] myWarn - Ruta /img/1641316898654_fede.jpg método GET no implementado
+[2022-01-17T18:54:55.490] [WARN] myWarn - Unhandled Rejection at: TypeError: Cannot read property 'info' of undefined
+    at Socket.<anonymous> (E:\Users\Fede\Documents\DESA\backend\clase38\services\sockets.js:27:24)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)

@@ -80,7 +80,7 @@ app.use("/productos", productosRouter);
 // SOCKETS 
 const webSocket = require('./services/sockets');
 const onConnection = (socket) => {
-    webSocket(io, socket);
+      webSocket(io, socket);
 }
 io.on('connection', onConnection);
 

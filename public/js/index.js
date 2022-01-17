@@ -159,6 +159,6 @@ function makeHtmlList(mensajes) {
   return ('<div><strong style="color: red;">Ups! Aún no hay mensajes..</strong> </div>')
 }
 }
-function deletemensajes() {
-  socket.emit('deletemensajes', 'Todos los mensajes se han eliminado');
+function deleteMensajes() {
+  socket.emit('deleteMensajes', 'Todos los mensajes se han eliminado');
 }
