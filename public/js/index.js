@@ -83,27 +83,6 @@ function editarProducto(id) {
 }
 
 
-(async () => {
-  const response = await fetch('/getUser');
-  const data = await response.json();
-  if (Object.keys(data)[0] != 'error') {
-      document.getElementById('user').innerHTML = `
-              <span>${data.nombre} - </span>
-              <span>${data.usuario} - </span>
-              <img src="  img/${data.foto}" width="45px" />
-          `
-      document.getElementById('btnLogout').innerHTML = `
-              <a  href="/auth/logout">Logout</a>
-          `
-  } else {
-      document.getElementById('user').innerHTML = `
-          
-              <a  href="signup.html">Signup</a>
-              <a  href="login.html">Login</a>
-       
-          `
-  }
-})();
 
 
 
@@ -130,6 +109,11 @@ function render(mensajes) {
   }
 }
 
+
+
+
+
+
 // se ejecuta cuando enviamos un nuevo mensaje
 function addMessage(e) {
   let mensajes = {
@@ -144,37 +128,37 @@ function addMessage(e) {
       text: document.getElementById('text').value
   };
   socket.emit('nuevoMensaje', mensajes);
-  document.getElementById('message').value = "";
+  document.getElementById('mensajes').value = "";
   return false;
 }
 
 // recibimos los mensajes del servidor y renderizamos
-socket.on('messages', messages => {
-  
-   render(mensajesDesnormalizados.mensajes);
-});
+
+socket.on('mensaje', mensajes => {
+  console.log(mensajes);
+  const html = makeHtmlList(mensajes)
+  document.getElementById('mensajes').innerHTML = html;
+})
 
 
+function makeHtmlList(mensajes) {
+   if (mensajes.length > 0) {
+    return mensajes.map(mensaje => {
+      return (`
+          <div>
+          <img src="${mensaje.author.avatar}" width="30px">
+            
+              <strong style="color: blue;">${mensaje.author.email}</strong>            
+              [<span style="color:brown;">${mensaje.fyh}</span>] :
+              <i style="color:green;">${mensaje.text}</i>
+          </div>
+      `)
+  }).join(" ");
 
+}else {
+  return ('<div><strong style="color: red;">Ups! Aún no hay mensajes..</strong> </div>')
+}
+}
 function deletemensajes() {
   socket.emit('deletemensajes', 'Todos los mensajes se han eliminado');
 }
-
-function desnormalizarMensajes(data) {
-  // defino entidad author
-  const author = new normalizr.schema.Entity('authors', {}, { idAttribute: 'email' });
-
-  // defino entidad texto de cada mensaje
-  const mensaje = new normalizr.schema.Entity('mensaje', {
-      author: author
-  }, { idAttribute: 'id' });
-
-  // defino la entidad mensajes
-  const mensajes = new normalizr.schema.Entity('mensajes', {
-      mensajes: [mensaje]
-  });
-
-  const denormalizedData = normalizr.denormalize(data.result, mensajes, data.entities);
-
-  return denormalizedData;
-} 

@@ -53,6 +53,7 @@ class ContenedorMongo {
     //buscar todos los registros.
     async getAll() {
         let doc = await this.coleccion.find({})        
+        //doc = parse_obj(doc)
         return doc
     }
     //buscar un id 
