@@ -195,3 +195,33 @@
     at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2698:17
     at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\schematype.js:1280:9
     at processTicksAndRejections (internal/process/task_queues.js:75:11)
+[2022-01-20T22:07:27.163] [WARN] myWarn - Unhandled Rejection at: Error: "text" es un campo requerido
+    at Mensaje.set text [as text] (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:31:26)
+    at new Mensaje (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:10:19)
+    at asModel (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:29:21)
+    at MensajesApi.save (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:19:25)
+    at Socket.<anonymous> (E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:17:41)
+    at Socket.emit (events.js:315:20)
+    at Socket.emitUntyped (E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\socket.io\dist\typed-events.js:69:22)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\socket.io\dist\socket.js:466:39
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+[2022-01-20T22:08:55.692] [WARN] myWarn - Unhandled Rejection at: Error: "text" es un campo requerido
+    at Mensaje.set text [as text] (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:31:26)
+    at new Mensaje (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:10:19)
+    at asModel (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:29:21)
+    at MensajesApi.save (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:19:25)
+    at Socket.<anonymous> (E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:17:41)
+    at Socket.emit (events.js:315:20)
+    at Socket.emitUntyped (E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\socket.io\dist\typed-events.js:69:22)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\socket.io\dist\socket.js:466:39
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+[2022-01-20T22:09:35.042] [WARN] myWarn - Unhandled Rejection at: ValidationError: mensajes validation failed: time: Path `time` is required., author.id: Path `author.id` is required.
+    at model.Document.invalidate (E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2907:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2698:17
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\schematype.js:1280:9
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+[2022-01-20T22:10:30.990] [WARN] myWarn - Unhandled Rejection at: ValidationError: mensajes validation failed: author.id: Path `author.id` is required.
+    at model.Document.invalidate (E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2907:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2698:17
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\schematype.js:1280:9
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)

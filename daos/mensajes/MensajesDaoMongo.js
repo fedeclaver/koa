@@ -12,8 +12,8 @@ class MensajesDaoMongo extends ContenedorMongo {
            alias: { type: String, required: true }, 
            avatar: { type: String, required: true }
         },
-        time: { type: String, required: true },
-        texto: { type: String, required: true }
+        fyh: { type: String, required: true },
+        text: { type: String, required: true }
         
     })
 }
