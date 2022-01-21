@@ -41,6 +41,7 @@
     "node-cache": "^5.1.2",
     "nodemailer": "^6.7.2",
     "nodemon": "^2.0.12",
+    "normalizr": "^3.6.1",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "sass": "^1.42.1",

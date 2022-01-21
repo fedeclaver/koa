@@ -9,14 +9,14 @@ module.exports = (io, socket) => {
 
     try {
         (async () => {
-           let resultado = await mensajesController.obtenerMensajes()
+           let resultado = await mensajesController.getAll()
             socket.emit('mensaje',resultado );
         })();
         socket.on('nuevoMensaje', (mensaje) => {
             mensaje.fyh = new Date().toLocaleString()
-            let id = mensajesController.crearMensaje(mensaje);    
+            let id = mensajesController.save(mensaje);    
             if (id) {
-                io.sockets.emit('mensaje', mensajesController.obtenerMensajes());
+                io.sockets.emit('mensaje', mensajesController.getAll());
                 }    
             }) 
        

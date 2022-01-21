@@ -2,39 +2,23 @@ const ContenedorMongo = require("../../contenedores/ContenedorMongo.js");
 
 class MensajesDaoMongo extends ContenedorMongo {
   constructor() {
-    super("mensajes", {
-      author: {
-      email: {
-        type: String,
-        required: true,
-      },
-      nombre: {
-        type: String,
-        required: true,
-      },
-      apellido: {
-        type: String,
-        required: true,
-      },
-      edad: {
-        type: Number,
-        required: true,
-      },
-      alias: {
-        type: String,
-        required: true,
-      },
-      avatar: {
-        type: String,
-        required: true,
-      },
-    },
-    text: {type: String, 
-      required: true},
-    fyh: {type: Date, 
-      default: Date.now}
-    });
-  }
+    super('mensajes', {
+        id: { type: Number, required: true },
+        author: { 
+           id: { type: Number, required: true },
+           nombre: { type: String, required: true },
+           apellido: { type: String, required: true },
+           edad: { type: Number, required: true }, 
+           alias: { type: String, required: true }, 
+           avatar: { type: String, required: true }
+        },
+        time: { type: String, required: true },
+        texto: { type: String, required: true }
+        
+    })
 }
+}
+
+
 
 module.exports = MensajesDaoMongo;

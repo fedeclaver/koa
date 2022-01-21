@@ -1,83 +1,42 @@
 
 
-const mensajesDao = require("../daos/mensajes/index.js");
-const {loggerWarn,loggerTrace,loggerDefault,loggerError} = require("../utils/log4js");
+const MensajesRepo = require("../repositorios/MensajesRepo.js");
+const { loggerWarn,loggerTrace,loggerDefault,loggerError } = require("../utils/log4js");
+const { asViewModels, asModel }  = require("../mappers/mensajesMapper.js");
+const  { generarId } = require("../utils/identificadores.js");
+const { normalizarMensajes } = require("../utils/normalizacion/index.js");
 
+const mensajesRepo = new MensajesRepo()
+class MensajesApi {
+    #mensajesRepo
 
+    constructor() {
+        this.#mensajesRepo = mensajesRepo
+    }
 
-const crearMensaje = async (req, res) => {
-    loggerTrace.trace("Ingreso a crearMensaje");
-    try {
+    async save(datos) {
+        datos.id = generarId('mensaje')
+        const mensaje = asModel(datos)
+        return await this.#mensajesRepo.save(mensaje)
+    }
 
-        if (req.author.email || req.author.nombre || req.author.apellido || req.author.edad || req.author.alias  || req.author.avatar  || req.text
-        ) {
-            const newItem = {
-                author: {
-                    email: req.author.email,
-                    nombre: req.author.nombre,                
-                    apellido: req.author.apellido,
-                    edad: req.author.edad,
-                    alias: req.author.alias,
-                    avatar: req.author.avatar,
-                },
-                text: req.text
-            };
-
-            // Creamos nuestro respuesta
-           let  respuesta = mensajesDao.save(newItem);
-
-            if (respuesta) {
-                return respuesta
-            } 
-
-        } else {
-         
-            loggerWarn.warn(
-                `El usuario no ingresó un campo de Mensaje requerido .`
-              );
-                throw new Error(`Error al insertar Mensajes campos requeridos`);
-         
-        }
-
-    } catch (error) {     
-        loggerError.error(error);
-        res.status(500).send('Hubo un error');
+    async getAll() {
+        const mensajes = await this.#mensajesRepo.getAll()
+        const vms = asViewModels(mensajes)
+       // const msgsNormalizado = normalizarMensajes(vms)
+        return vms
+    }
+    async eliminarMensajes() {
+        const mensajes = await this.#mensajesRepo.deleteAll()
+        const vms = asViewModels(mensajes)
+       // const msgsNormalizado = normalizarMensajes(vms)
+        return vms
     }
 }
 
-const obtenerMensajes = async (req, res) => {
-    loggerTrace.trace("Ingreso a obtenerMensajes");
-    try {
-
-        const mensajes = await mensajesDao.getAll();
-        if (mensajes && mensajes.length != 0) {
-
-            return mensajes;
-         }  
-
-    } catch (error) {
-        loggerError.error(error);
-        res.status(500).send('Hubo un error');
-    }
-
-}
 
 
-const eliminarMensajes = async (req, res) => {
-    loggerTrace.trace("Ingreso a eliminarMensajes");
-    try {
-        let mensajes = await mensajesDao.deleteAll();
-
-        if (mensajes) {
-           return mensajes
-        }
+const mensajesApi = new MensajesApi()
 
 
-
-    } catch (error) {
-        loggerError.error(error);
-        res.status(500).send('Hubo un error');
-    }
-}
-
-module.exports = {eliminarMensajes,obtenerMensajes,crearMensaje};
+module.exports = mensajesApi;
