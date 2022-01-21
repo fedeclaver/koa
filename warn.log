@@ -225,3 +225,87 @@
     at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2698:17
     at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\schematype.js:1280:9
     at processTicksAndRejections (internal/process/task_queues.js:75:11)
+[2022-01-20T22:37:24.873] [WARN] myWarn - Unhandled Rejection at: TypeError: normalizarMensajes is not a function
+    at MensajesApi.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:26:33)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:12:28
+[2022-01-20T22:38:04.849] [WARN] myWarn - Unhandled Rejection at: TypeError: normalizarMensajes is not a function
+    at MensajesApi.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:26:33)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:12:28
+[2022-01-20T22:39:09.417] [WARN] myWarn - Unhandled Rejection at: ValidationError: mensajes validation failed: author.id: Path `author.id` is required.
+    at model.Document.invalidate (E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2907:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2698:17
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\schematype.js:1280:9
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+[2022-01-20T22:40:10.768] [WARN] myWarn - Unhandled Rejection at: ValidationError: mensajes validation failed: author.id: Path `author.id` is required.
+    at model.Document.invalidate (E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2907:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\document.js:2698:17
+    at E:\Users\Fede\Documents\DESA\backend\clase40\node_modules\mongoose\lib\schematype.js:1280:9
+    at processTicksAndRejections (internal/process/task_queues.js:75:11)
+[2022-01-20T23:11:36.693] [WARN] myWarn - Unhandled Rejection at: Error: "email" es un campo requerido
+    at Autor.set email [as email] (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Autor.js:21:27)
+    at new Autor (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Autor.js:10:20)
+    at asModel (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:28:20)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:37
+    at Array.map (<anonymous>)
+    at asModels (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:28)
+    at MensajesRepo.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\repositorios\MensajesRepo.js:17:26)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async MensajesApi.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:24:26)
+    at async E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:12:28
+[2022-01-20T23:13:04.129] [WARN] myWarn - Unhandled Rejection at: Error: "email" es un campo requerido
+    at Autor.set email [as email] (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Autor.js:21:27)
+    at new Autor (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Autor.js:10:20)
+    at asModel (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:28:20)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:37
+    at Array.map (<anonymous>)
+    at asModels (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:28)
+    at MensajesRepo.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\repositorios\MensajesRepo.js:17:26)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async MensajesApi.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:24:26)
+    at async E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:12:28
+[2022-01-20T23:13:56.752] [WARN] myWarn - Unhandled Rejection at: Error: "id" es un campo requerido
+    at Mensaje.set id [as id] (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:17:24)
+    at new Mensaje (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:8:17)
+    at asModel (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:29:21)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:37
+    at Array.map (<anonymous>)
+    at asModels (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:28)
+    at MensajesRepo.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\repositorios\MensajesRepo.js:17:26)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async MensajesApi.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:24:26)
+    at async E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:12:28
+[2022-01-20T23:18:09.247] [WARN] myWarn - Unhandled Rejection at: Error: "id" es un campo requerido
+    at Mensaje.set id [as id] (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:17:24)
+    at new Mensaje (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:8:17)
+    at asModel (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:29:21)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:37
+    at Array.map (<anonymous>)
+    at asModels (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:28)
+    at MensajesRepo.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\repositorios\MensajesRepo.js:17:26)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async MensajesApi.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:24:26)
+    at async E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:12:28
+[2022-01-20T23:19:12.114] [WARN] myWarn - Unhandled Rejection at: Error: "id" es un campo requerido
+    at Mensaje.set id [as id] (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:17:24)
+    at new Mensaje (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:8:17)
+    at asModel (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:29:21)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:37
+    at Array.map (<anonymous>)
+    at asModels (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:28)
+    at MensajesRepo.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\repositorios\MensajesRepo.js:17:26)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async MensajesApi.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:24:26)
+    at async E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:12:28
+[2022-01-20T23:19:17.995] [WARN] myWarn - Unhandled Rejection at: Error: "id" es un campo requerido
+    at Mensaje.set id [as id] (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:17:24)
+    at new Mensaje (E:\Users\Fede\Documents\DESA\backend\clase40\modelos\Mensaje.js:8:17)
+    at asModel (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:29:21)
+    at E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:37
+    at Array.map (<anonymous>)
+    at asModels (E:\Users\Fede\Documents\DESA\backend\clase40\mappers\mensajesMapper.js:34:28)
+    at MensajesRepo.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\repositorios\MensajesRepo.js:17:26)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async MensajesApi.getAll (E:\Users\Fede\Documents\DESA\backend\clase40\controllers\mensajesController.js:24:26)
+    at async E:\Users\Fede\Documents\DESA\backend\clase40\services\sockets.js:12:28

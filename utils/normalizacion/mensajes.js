@@ -15,4 +15,4 @@ const normalizarMensajes = (mensajesConId) => {
 }
 
 
-module.exports = { normalizarMensajes }
+module.exports =  {normalizarMensajes} 

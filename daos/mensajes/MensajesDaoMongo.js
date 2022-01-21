@@ -4,8 +4,8 @@ class MensajesDaoMongo extends ContenedorMongo {
   constructor() {
     super('mensajes', {
         id: { type: Number, required: true },
-        author: { 
-           id: { type: Number, required: true },
+        author: {   
+          email: { type: String, required: true },    
            nombre: { type: String, required: true },
            apellido: { type: String, required: true },
            edad: { type: Number, required: true }, 

@@ -4,7 +4,7 @@ const MensajesRepo = require("../repositorios/MensajesRepo.js");
 const { loggerWarn,loggerTrace,loggerDefault,loggerError } = require("../utils/log4js");
 const { asViewModels, asModel }  = require("../mappers/mensajesMapper.js");
 const  { generarId } = require("../utils/identificadores.js");
-const { normalizarMensajes } = require("../utils/normalizacion/index.js");
+const { normalizarMensajes } = require("../utils/normalizacion/mensajes.js");
 
 const mensajesRepo = new MensajesRepo()
 class MensajesApi {
@@ -23,14 +23,14 @@ class MensajesApi {
     async getAll() {
         const mensajes = await this.#mensajesRepo.getAll()
         const vms = asViewModels(mensajes)
-       // const msgsNormalizado = normalizarMensajes(vms)
+        //const msgsNormalizado = normalizarMensajes(vms)
         return vms
     }
     async eliminarMensajes() {
         const mensajes = await this.#mensajesRepo.deleteAll()
         const vms = asViewModels(mensajes)
-       // const msgsNormalizado = normalizarMensajes(vms)
-        return vms
+        const msgsNormalizado = normalizarMensajes(vms)
+        return msgsNormalizado
     }
 }
 

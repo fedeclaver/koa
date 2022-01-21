@@ -136,8 +136,35 @@ function addMessage(e) {
 
 socket.on('mensaje', mensajes => {
   console.log(mensajes);
+
   const html = makeHtmlList(mensajes)
   document.getElementById('mensajes').innerHTML = html;
+})
+
+
+
+socket.on('mensajes', mensajesN => {
+  const mensajesNsize = JSON.stringify(mensajesN).length
+  console.log(mensajesN, mensajesNsize)
+
+  const mensajesD = normalizr.denormalize(
+    mensajesN.result,
+    schemaMensajes,
+    mensajesN.entities
+  )
+
+  const mensajesDsize = JSON.stringify(mensajesD).length
+  console.log(mensajesD, mensajesDsize)
+
+  const porcentajeC = parseInt(
+    (Math.abs(mensajesDsize - mensajesNsize) * 100) / mensajesNsize
+  )
+  console.log(`Porcentaje de compresión ${porcentajeC}%`)
+  document.getElementById('compresion-info').innerText = porcentajeC
+
+  console.log(mensajesD.mensajes)
+  const html = makeHtmlList(mensajesD.mensajes)
+  document.getElementById('mensajes').innerHTML = html
 })
 
 
@@ -162,3 +189,32 @@ function makeHtmlList(mensajes) {
 function deleteMensajes() {
   socket.emit('deleteMensajes', 'Todos los mensajes se han eliminado');
 }
+
+
+
+//-------------------------------------------------------------------------------------
+
+// MENSAJES
+
+/* --------------------- DESNORMALIZACIÓN DE MENSAJES ---------------------------- */
+// Definimos un esquema de autor
+const schemaAuthor = new normalizr.schema.Entity(
+  'author',
+  {},
+  { idAttribute: 'id' }
+)
+
+// Definimos un esquema de mensaje
+const schemaMensaje = new normalizr.schema.Entity(
+  'post',
+  { author: schemaAuthor },
+  { idAttribute: '_id' }
+)
+
+// Definimos un esquema de posts
+const schemaMensajes = new normalizr.schema.Entity(
+  'posts',
+  { mensajes: [schemaMensaje] },
+  { idAttribute: 'id' }
+)
+/* ----------------------------------------------------------------------------- */
