@@ -1,26 +1,31 @@
-const express = require("express");
-const { Router } = express;
-const router = new Router();
+const Router = require("koa-router");
+
 const productoController = require("../controllers/productoController");
 const {checkAuthentication} = require('../middleware/acceso');
-const {esAdmin} = require('../middleware/acceso');
-//api/productos
-router.post("/agregar", checkAuthentication,esAdmin,productoController.crearProducto);
+const router = new Router();
 
-router.get("/listar", checkAuthentication, productoController.obtenerProductos);
-router.put(
-  "/actualizar/:id",
-  checkAuthentication,esAdmin,
-  productoController.actualizarProductos
-);
-router.get(
-  "/listar/:id",
-  checkAuthentication,esAdmin,
-  productoController.obtenerProducto
-);
-router.delete(
-  "/borrar/:id",
-  checkAuthentication,esAdmin,
-  productoController.eliminarProducto
+router.get("/listar", productoController.obtenerProductos);
+//api/productos
+
+router.post("/agregar", checkAuthentication,productoController.crearProducto);
+
+
+ router.put(
+   "/actualizar/:id",
+   checkAuthentication,
+   productoController.actualizarProductos
+ );
+ router.get(
+   "/listar/:id",
+   checkAuthentication,
+   productoController.obtenerProducto
+ );
+ router.delete(
+   "/borrar/:id",
+   checkAuthentication,
+   productoController.eliminarProducto
 );
 module.exports = router;
+
+
+

@@ -43,7 +43,21 @@ module.exports =  {
      TWILIO_NUM_WHATSAPP: process.env.TWILIO_NUM_WHATSAPP,
      ADMIN_WHATSAPP:process.env.ADMIN_WHATSAPP,
      TWILIO_SMS_SERVICE: process.env.TWILIO_SMS_SERVICE
+},{
+ALLOW_CORS: !!+process.env.ALLOW_CORS
+},
+{
+SESSION_CONFIG: {
+    key: 'koa:sess',
+    maxAge: process.env.COOKIE_MAX_AGE,
+    autoCommit: true,
+    overwrite: true,
+    httpOnly: !!+process.env.PROD,
+    signed: true,
+    rolling: false,
+    renew: true,
+    secure: !!+process.env.PROD,
+    sameSite: !!+process.env.PROD,
+  }
+
 }
-
-
-

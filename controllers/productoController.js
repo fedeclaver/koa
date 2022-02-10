@@ -58,16 +58,16 @@ const crearProducto = async (req, res) => {
     }
 }
 
-const obtenerProductos = async (req, res) => {
+const obtenerProductos =  async(req, res) => {
     loggerTrace.trace("Ingreso a obtenerProductos");
     try {
-
-        const productos = await productosDao.getAll();
-        res.json(productos)
-
+              const productos = await productosDao.getAll();
+              req.body = productos;           
+        
     } catch (error) {
         loggerError.error(error);
-        res.status(500).send('Hubo un error');
+        console.log(error);
+        req.throw(204, "no content");
     }
 
 }

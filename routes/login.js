@@ -1,7 +1,8 @@
-const { Router } = require('express');
-const router = Router();
+const Router = require("koa-router");
+const router = new Router();
 const passport = require('../auth/passport');
 const upload = require('../middleware/multer');
+
 
 
 //-----------LOGIN----------------

@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const passport = require('passport');
+const passport = require('koa-passport');
 const LocalStrategy = require('passport-local').Strategy;
 const usuariosDao = require("../daos/usuarios/index.js");
 const config = require('../config/config');

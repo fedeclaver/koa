@@ -2,12 +2,14 @@ const { loggerWarn } = require("../utils/log4js");
 const { admin } = require('../config/config');
 
 // middleware de authentication
-const checkAuthentication = (req, res, next) => {
+const checkAuthentication = async  (ctx, next) => {
     try {
-        if (req.isAuthenticated()) {
-            next();
+        if (ctx.session.passport && ctx.session.passport.user._id) {
+            await next();
+          
         } else {
-            res.json({ error: `No está autenticado.` })
+            ctx.status = 401;
+            ctx.body = {message: 'Unauthorized'}
 
         }
     } catch (error) {
@@ -19,18 +21,4 @@ const checkAuthentication = (req, res, next) => {
 
 
 
-const esAdmin = (req, res, next) => {
-    try {
-        if (admin) {
-            next();
-        } else {
-            loggerWarn.warn(`Ruta ${req.originalUrl} método ${req.method} no autorizada`);
-            res.json({ error : -1, descripcion: `ruta ${req.originalUrl} método ${req.method} no autorizada` })
-        }
-    } catch (error) {
-        loggerWarn.warn(error);
-    }
-}
-
-
-module.exports =  {esAdmin,checkAuthentication};
+module.exports =  {checkAuthentication};
