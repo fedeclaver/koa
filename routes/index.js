@@ -8,10 +8,10 @@ const router = new Router();
 
 
 
-  router.use('/auth', loginRouter.routes());
+  //router.use('/auth', loginRouter.routes());
 
 
 
-  router.use('/productos',checkAuthentication, productosRouter.routes());
+  router.use('/productos', productosRouter.routes());
 
   module.exports = router;

@@ -1,0 +1,93 @@
+[2022-02-14T17:43:33.856] [ERROR] myError - Error: Error al insertar Productos campos requeridos
+    at crearProducto (E:\Users\Fede\Documents\DESA\backend\clase46\controllers\productoController.js:56:27)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:34:12
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-passport\lib\framework\koa.js:150:16
+    at async session (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-session\index.js:41:7)
+    at async serve (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-static\index.js:53:9)
+[2022-02-14T17:45:44.895] [ERROR] myError - Error: Error al insertar Productos campos requeridos
+    at crearProducto (E:\Users\Fede\Documents\DESA\backend\clase46\controllers\productoController.js:56:27)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:34:12
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-passport\lib\framework\koa.js:150:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async session (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-session\index.js:41:7)
+[2022-02-14T17:48:41.109] [ERROR] myError - Error: Error al insertar Productos campos requeridos
+    at crearProducto (E:\Users\Fede\Documents\DESA\backend\clase46\controllers\productoController.js:56:27)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:34:12
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-passport\lib\framework\koa.js:150:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async session (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-session\index.js:41:7)
+[2022-02-14T17:50:01.625] [ERROR] myError - Error: Error al insertar Productos campos requeridos
+    at crearProducto (E:\Users\Fede\Documents\DESA\backend\clase46\controllers\productoController.js:56:27)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:34:12
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-passport\lib\framework\koa.js:150:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async session (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-session\index.js:41:7)
+[2022-02-14T17:52:01.093] [ERROR] myError - TypeError: Cannot read property 'nombre' of undefined
+    at crearProducto (E:\Users\Fede\Documents\DESA\backend\clase46\controllers\productoController.js:11:26)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:34:12
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-passport\lib\framework\koa.js:150:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async session (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-session\index.js:41:7)
+[2022-02-14T17:57:15.400] [ERROR] myError - ReferenceError: idcrear is not defined
+    at crearProducto (E:\Users\Fede\Documents\DESA\backend\clase46\controllers\productoController.js:14:25)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:34:12
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-passport\lib\framework\koa.js:150:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async session (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-session\index.js:41:7)
+[2022-02-14T17:57:50.356] [ERROR] myError - TypeError: ctx.status is not a function
+    at crearProducto (E:\Users\Fede\Documents\DESA\backend\clase46\controllers\productoController.js:27:25)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:34:12
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-passport\lib\framework\koa.js:150:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async session (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-session\index.js:41:7)
+[2022-02-14T18:05:54.416] [ERROR] myError - TypeError: Cannot read property 'id' of undefined
+    at eliminarProducto (E:\Users\Fede\Documents\DESA\backend\clase46\controllers\productoController.js:124:69)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:372:16
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:34:12
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-router\lib\router.js:377:31)
+    at dispatch (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-compose\index.js:42:32)
+    at E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-passport\lib\framework\koa.js:150:16
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async session (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-session\index.js:41:7)
+[2022-02-14T18:07:44.375] [ERROR] myError - TypeError: Cannot read property 'id' of undefined
+    at eliminarProducto (E:\Users\Fede\Documents\DESA\backend\clase46\controllers\productoController.js:135:65)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async session (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-session\index.js:41:7)
+    at async serve (E:\Users\Fede\Documents\DESA\backend\clase46\node_modules\koa-static\index.js:53:9)

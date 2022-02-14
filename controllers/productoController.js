@@ -5,78 +5,74 @@ const {loggerWarn,loggerTrace,loggerDefault,loggerError} = require("../utils/log
 
 
 
-const crearProducto = async (req, res) => {
+const crearProducto = async (ctx, next)  => {
     loggerTrace.trace("Ingreso a crearProducto");
-    try {
-
-        if (req.nombre || req.descripcion || req.código || req.foto || req.stock
-        ) {
-            const cantidad = await productosDao.find({}).count()
-            if (cantidad == 0) {
-                req.id = 1;
+    try {   
+        if (ctx.request.body.nombre || ctx.request.body.descripcion || ctx.request.body.código || ctx.request.body.foto || ctx.request.body.stock
+            ) {
+                const newItem = {           
+                    timestamp: Date.now(),
+                    nombre: ctx.request.body.nombre,
+                    descripcion: ctx.request.body.descripcion,
+                    codigo: ctx.request.body.codigo,
+                    foto: ctx.request.body.foto,
+                    precio: ctx.request.body.precio,
+                    stock: ctx.request.body.stock
+                };
+    
+                // Creamos nuestro producto
+                producto = productosDao.guardar(newItem);
+    
+                if (producto) {
+                    ctx.response.status = (200);
+                    ctx.body = {
+                        status: "ok",
+                        message: `Producto insertado correctamente id:${producto.id}`,
+                      };   
+                      
+                } else {
+                    ctx.response.status = (500);
+                    ctx.body = {
+                        status: "error",
+                        message: "Error al crearProducto",
+                      };                   
+                }
+    
             } else {
-                let max = await productosDao.find().sort({ id: -1 }).limit(1) //max id
-
-                max = JSON.parse(max[0].id);
-                req.id = max + 1;
+             
+                loggerWarn.warn(
+                    `El usuario no ingresó un campo de Producto requerido .`
+                  );
+                    throw new Error(`Error al insertar Productos campos requeridos`);
+             
             }
-            const newItem = {
-                id: req.id,
-                timestamp: Date.now(),
-                nombre: req.nombre,
-                descripcion: req.descripcion,
-                codigo: req.codigo,
-                foto: req.foto,
-                precio: req.precio,
-                stock: req.stock
-            };
-
-            // Creamos nuestro producto
-            producto = productosDao.save(newItem);
-
-            if (producto) {
-                res
-                    .status(200)
-                    .redirect("/producto.html")
-                    .json({ msg: `Producto insertado correctamente id:${producto.id}` });
-            } else {
-                res.status(500).json({ msg: "Error al crearProducto" });
-            }
-
-        } else {
-         
-            loggerWarn.warn(
-                `El usuario no ingresó un campo de Producto requerido .`
-              );
-                throw new Error(`Error al insertar Productos campos requeridos`);
-         
+    
+        } catch (error) {     
+            loggerError.error(error);
+            ctx.throw(500, error);
         }
+    }         
 
-    } catch (error) {     
-        loggerError.error(error);
-        res.status(500).send('Hubo un error');
-    }
-}
-
-const obtenerProductos =  async(req, res) => {
+const obtenerProductos =  async(ctx, next)  => {
     loggerTrace.trace("Ingreso a obtenerProductos");
     try {
               const productos = await productosDao.getAll();
-              req.body = productos;           
+              ctx.body = productos;           
         
     } catch (error) {
         loggerError.error(error);
         console.log(error);
-        req.throw(204, "no content");
+        ctx.throw(500, error);
     }
 
 }
 
-const actualizarProductos = async (req, res) => {
+
+const actualizarProductos = async (ctx, next)=> {
     loggerTrace.trace("Ingreso a actualizarProductos");
     try {
-        const { nombre, descripcion, codigo, foto, precio, stock } = req.body;
-        let producto = await productosDao.getById(req.params.id);
+        const { nombre, descripcion, codigo, foto, precio, stock } = ctx.request.body;
+        let producto = await productosDao.getById(ctx.params.id);
 
         if (!producto) {
             res.status(404).json({ msg: 'No existe el producto' })
@@ -89,47 +85,61 @@ const actualizarProductos = async (req, res) => {
         producto.precio = precio;
         producto.stock = stock;
         producto = await productosDao.update(producto)
-        res.json(producto);
+        ctx.response.status = 201;
+        ctx.json(producto);
 
     } catch (error) {
         loggerError.error(error);
-        res.status(500).send('Hubo un error');
+        ctx.throw(500, error);
     }
 }
 
 
-const obtenerProducto = async (req, res) => {
+const obtenerProducto = async (ctx, next) => {
     loggerTrace.trace("Ingreso a obtenerProducto");
     try {
-        let producto = await productosDao.getById(req.params.id);
+        let producto = await productosDao.getById(ctx.params.id);
 
         if (!producto) {
-            res.status(404).json({ msg: 'No existe el producto' })
+            ctx.body = {
+                status: "error",
+                message: "No existe el producto",
+              };   
+            ctx.response.status = (404)
+        }else{
+            ctx.body = producto;
         }
 
-        res.json(producto);
+        
 
     } catch (error) {
         loggerError.error(error);
-        res.status(500).send('Hubo un error');
+        ctx.throw(500, error);
     }
 }
 
-const eliminarProducto = async (req, res) => {
+const eliminarProducto = async (ctx, next) => {
     loggerTrace.trace("Ingreso a eliminarProducto");
-    try {
-        let producto = await productosDao.getById(req.params.id);
+    try {      
+        let producto = await productosDao.getById(ctx.params.id);
 
         if (!producto) {
-            res.status(404).json({ msg: 'No existe el producto' })
+            ctx.response.status = (500);
+                    ctx.body = {
+                        status: "error",
+                        message: "Error al eliminar Producto",
+                      };     
         }
 
-        await productosDao.deleteById({ _id: req.params.id })
-        res.json({ msg: 'Producto eliminado con exito' });
-
+        await productosDao.deleteById(ctx.params.id)
+        ctx.response.status = (200);
+        ctx.body = {
+            status: "ok",
+            message: "Producto Eliminado con éxito",
+          };     
     } catch (error) {
         loggerError.error(error);
-        res.status(500).send('Hubo un error');
+        ctx.throw(500, error);
     }
 }
 

@@ -5,7 +5,7 @@ const { loggerTrace,loggerInfo, loggerWarn, loggerError } = require('./utils/log
 
 const Koa = require("koa");
 const json = require('koa-json');
-const bodyParser = require('koa-bodyparser');
+
 const app = new Koa();
 
 const cors = require("koa-cors");
@@ -18,7 +18,7 @@ const koaBody = require("koa-body");
 const KoaStatic = require('koa-static')
 app.use(KoaStatic(__dirname + '/public'))
 app.use(json());
-app.use(bodyParser())
+
 app.use(koaBody());
 
 
