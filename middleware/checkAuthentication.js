@@ -1,17 +1,13 @@
 const { loggerWarn } = require("../utils/log4js");
 
-// middleware de authentication
-const checkAuthentication = (req, res, next) => {
-    try {
-        if (req.isAuthenticated()) {
-            next();
-        } else {
-            res.json({ error: `No está autenticado.` })
-
-        }
-    } catch (error) {
-        loggerWarn.warn(error);
+const checkAuthentication = async (ctx, next) => {
+    if (ctx.isAuthenticated()) {
+        await next();
+    } else {
+        loggerWarn.warn('Intento de acceso no autenticado');
+        ctx.status = 401;
+        ctx.body = { error: 'No está autenticado' };
     }
-}
+};
 
 module.exports = checkAuthentication;
