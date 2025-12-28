@@ -1,52 +1,60 @@
-//config
-const {mongodb,SESSION_CONFIG, ENABLE_WEB_SOCKETS,ALLOW_CORS} = require("./config/config.js");
-//logger
-const { loggerTrace,loggerInfo, loggerWarn, loggerError } = require('./utils/log4js.js');
-
 const Koa = require("koa");
 const json = require('koa-json');
+const cors = require("koa-cors");
+const session = require('koa-session');
+const koaBody = require("koa-body");
+const KoaStatic = require('koa-static');
+const passport = require('koa-passport');
+
+const config = require("./config/config.js");
+const { loggerError } = require('./utils/log4js.js');
+const errorHandler = require('./middleware/errorHandler');
+const router = require('./routes');
 
 const app = new Koa();
 
-const cors = require("koa-cors");
+// Error handling - debe ir primero para capturar todos los errores
+app.use(errorHandler);
 
-const session = require('koa-session');
+// Static files
+app.use(KoaStatic(__dirname + '/public'));
 
-
-const koaBody = require("koa-body");
-
-const KoaStatic = require('koa-static')
-app.use(KoaStatic(__dirname + '/public'))
+// Body parsing
+app.use(koaBody());
 app.use(json());
 
-app.use(koaBody());
+// CORS
+if (config.ALLOW_CORS) {
+    app.use(cors());
+}
 
-
-ALLOW_CORS && app.use(cors());
-
-
-//passport
-const passport = require('koa-passport');
+// Session & Auth
+app.use(session(config.SESSION_CONFIG, app));
 app.use(passport.initialize());
-app.use(session(SESSION_CONFIG, app));
 app.use(passport.session());
 
-const router = require('./routes');
-
-
+// Routes
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-//app.use(productosRouter.routes());
-
-ENABLE_WEB_SOCKETS && bindWebSocket(app);
+// Application error event handler
+app.on('error', (err, ctx) => {
+    loggerError.error('Unhandled application error', {
+        error: err.message,
+        url: ctx?.url,
+        method: ctx?.method
+    });
+});
 
 // Server listen
-const PORT = 8080
+const PORT = config.PORT || 8080;
 const server = app.listen(PORT, () => {
-    console.log(`Servidor Koa escuchando en el puerto ${server.address().port}`)
-})
-server.on('error', error => console.log('Error en Servidor Koa:',error))
+    console.log(`Servidor Koa escuchando en el puerto ${PORT}`);
+});
+
+server.on('error', error => {
+    loggerError.error('Error en Servidor Koa:', error);
+});
 
 
 
